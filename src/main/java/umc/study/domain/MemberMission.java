@@ -29,6 +29,6 @@ public class MemberMission extends BaseEntity {
 
     //status에 따른 이름 바꿔주기
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "varchar(15) default 'CHALLENGING'")
     private MissionStatus missionStatus;
 }

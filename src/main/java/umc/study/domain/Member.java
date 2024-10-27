@@ -42,11 +42,11 @@ public class Member extends BaseEntity {
 
     //status에 따른 이름 바꿔주기
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "varchar(15)")
+    @Column(nullable = false, columnDefinition = "varchar(10) default 'ACTIVE'")
     private MemberStatus memberStatus;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "varchar(10)")
     private SocialType socialType;
 
     private LocalDate inactiveDate;
