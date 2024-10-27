@@ -24,6 +24,7 @@ public class Review extends BaseEntity {
     @JoinColumn(nullable = false, name = "store_id")
     private Store store;
 
+    @Lob
     @Column(nullable = false)
     private String body;
 
