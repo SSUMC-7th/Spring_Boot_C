@@ -1,9 +1,8 @@
-package umc.study.domain;
+package umc.spring.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.w3c.dom.Text;
-import umc.study.domain.common.BaseEntity;
+import umc.spring.domain.common.BaseEntity;
 
 @Entity
 @Getter

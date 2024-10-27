@@ -1,12 +1,11 @@
-package umc.study.domain.mapping;
+package umc.spring.domain.mapping;
 
 import jakarta.persistence.*;
 import lombok.*;
-import umc.study.domain.FoodCategory;
-import umc.study.domain.Member;
-import umc.study.domain.Mission;
-import umc.study.domain.common.BaseEntity;
-import umc.study.domain.enums.MissionStatus;
+import umc.spring.domain.Member;
+import umc.spring.domain.Mission;
+import umc.spring.domain.common.BaseEntity;
+import umc.spring.domain.enums.MissionStatus;
 
 @Entity
 @Getter

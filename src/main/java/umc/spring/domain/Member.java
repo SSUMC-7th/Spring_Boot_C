@@ -1,15 +1,14 @@
-package umc.study.domain;
+package umc.spring.domain;
 
-import com.mysql.cj.protocol.ColumnDefinition;
 import jakarta.persistence.*;
 import lombok.*;
-import umc.study.domain.common.BaseEntity;
-import umc.study.domain.enums.Gender;
-import umc.study.domain.enums.MemberStatus;
-import umc.study.domain.enums.SocialType;
-import umc.study.domain.mapping.MemberAgree;
-import umc.study.domain.mapping.MemberMission;
-import umc.study.domain.mapping.MemberPrefer;
+import umc.spring.domain.common.BaseEntity;
+import umc.spring.domain.enums.Gender;
+import umc.spring.domain.enums.MemberStatus;
+import umc.spring.domain.enums.SocialType;
+import umc.spring.domain.mapping.MemberAgree;
+import umc.spring.domain.mapping.MemberMission;
+import umc.spring.domain.mapping.MemberPrefer;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

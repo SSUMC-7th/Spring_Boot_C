@@ -1,9 +1,8 @@
-package umc.study.domain;
+package umc.spring.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import umc.study.domain.common.BaseEntity;
-import umc.study.domain.mapping.MemberAgree;
+import umc.spring.domain.common.BaseEntity;
 
 import java.util.ArrayList;
 import java.util.List;

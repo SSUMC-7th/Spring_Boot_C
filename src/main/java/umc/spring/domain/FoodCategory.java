@@ -1,9 +1,9 @@
-package umc.study.domain;
+package umc.spring.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import umc.study.domain.common.BaseEntity;
-import umc.study.domain.mapping.MemberPrefer;
+import umc.spring.domain.common.BaseEntity;
+import umc.spring.domain.mapping.MemberPrefer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +22,6 @@ public class FoodCategory extends BaseEntity {
     @Column(nullable = false, length = 15)
     private String name;
 
-    @OneToMany(mappedBy = "food_category", cascade = CascadeType.ALL)
-    private List<MemberPrefer> reviewList = new ArrayList<>();
+    /*@OneToMany(mappedBy = "food_category", cascade = CascadeType.ALL)
+    private List<MemberPrefer> memberpreferfoodList = new ArrayList<>();*/
 }
