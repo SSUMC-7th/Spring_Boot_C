@@ -19,8 +19,7 @@ public class Store extends BaseEntity {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "region_id")
-    @Column(nullable = false)
+    @JoinColumn(nullable = false, name = "region_id")
     private Region region;
 
     @Column(nullable = false, length = 50)

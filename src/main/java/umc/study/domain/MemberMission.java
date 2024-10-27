@@ -18,13 +18,11 @@ public class MemberMission extends BaseEntity {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
-    @Column(nullable = false)
+    @JoinColumn(nullable = false, name = "member_id")
     private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mission_id")
-    @Column(nullable = false)
+    @JoinColumn(nullable = false, name = "mission_id")
     private Mission mission;
 
     //status에 따른 이름 바꿔주기

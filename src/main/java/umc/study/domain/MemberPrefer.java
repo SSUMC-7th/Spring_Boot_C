@@ -17,12 +17,10 @@ public class MemberPrefer extends BaseEntity {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
-    @Column(nullable = false)
+    @JoinColumn(nullable = false, name = "member_id")
     private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "food_category_id")
-    @Column(nullable = false)
+    @JoinColumn(nullable = false, name = "food_category_id")
     private FoodCategory foodCategory;
 }

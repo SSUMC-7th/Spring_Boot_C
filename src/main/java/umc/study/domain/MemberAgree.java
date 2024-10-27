@@ -17,12 +17,10 @@ public class MemberAgree extends BaseEntity {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
-    @Column(nullable = false)
+    @JoinColumn(nullable = false, name = "member_id")
     private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "terms_id")
-    @Column(nullable = false)
+    @JoinColumn(nullable = false, name = "terms_id")
     private Terms terms;
 }
