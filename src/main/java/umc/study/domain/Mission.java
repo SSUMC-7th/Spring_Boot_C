@@ -26,5 +26,6 @@ public class Mission extends BaseEntity {
 
     private LocalDateTime deadline;
 
+    @Lob
     private String missionSpec;
 }
