@@ -15,8 +15,10 @@ import java.time.LocalDateTime;
 public abstract class BaseEntity {
 
     @CreatedDate
+    @Column(columnDefinition = "TIMESTAMP(6)")
     private LocalDateTime createdAt;
 
     @LastModifiedDate
+    @Column(columnDefinition = "TIMESTAMP(6)")
     private LocalDateTime updatedAt;
 }
