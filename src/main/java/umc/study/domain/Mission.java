@@ -1,9 +1,6 @@
 package umc.study.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import umc.study.domain.common.BaseEntity;
 
@@ -24,4 +21,8 @@ public class Mission extends BaseEntity {
     private LocalDate deadline;
 
     private String missionSpec;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id")
+    private Store store;
 }

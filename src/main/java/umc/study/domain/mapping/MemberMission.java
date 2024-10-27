@@ -18,4 +18,5 @@ public class MemberMission extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private MissionStatus status;
 
+
 }
