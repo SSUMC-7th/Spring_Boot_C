@@ -9,6 +9,7 @@ import umc.study.domain.commom.BaseEntity;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = "name")})
 public class Region extends BaseEntity {
 
     @Id

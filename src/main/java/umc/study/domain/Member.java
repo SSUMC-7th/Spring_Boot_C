@@ -17,6 +17,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = "email")})
 public class Member extends BaseEntity {
 
     @Id
