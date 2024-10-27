@@ -1,7 +1,9 @@
 package umc.study.domain;
 
+
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.web.service.annotation.GetExchange;
 import umc.study.domain.commom.BaseEntity;
 
 @Entity
@@ -9,13 +11,20 @@ import umc.study.domain.commom.BaseEntity;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class FoodCategory extends BaseEntity {
+public class Store extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "food_category_id")
+    @Column(name = "store_id")
     private Long id;
 
-    @Column(length = 15)
+    @ManyToOne
+    @JoinColumn(name = "region_id")
+    private Region region;
+
+    @Column(length = 50)
     private String name;
+
+    //Double? Float?
+    private Float score;
 }

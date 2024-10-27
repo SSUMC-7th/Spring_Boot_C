@@ -9,13 +9,13 @@ import umc.study.domain.commom.BaseEntity;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class FoodCategory extends BaseEntity {
+public class Region extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "food_category_id")
+    @Column(name = "region_id")
     private Long id;
 
-    @Column(length = 15)
+    @Column(length = 20)
     private String name;
 }

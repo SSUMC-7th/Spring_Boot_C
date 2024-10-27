@@ -35,8 +35,9 @@ public class Member extends BaseEntity {
     @Column(length = 40)
     private String specAddress;
 
+    //status에 따른 이름 바꿔주기
     @Enumerated(EnumType.STRING)
-    private MemberStatus status;
+    private MemberStatus memberStatus;
 
     @Enumerated(EnumType.STRING)
     private SocialType socialType;
