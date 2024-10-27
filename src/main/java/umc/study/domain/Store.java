@@ -25,6 +25,8 @@ public class Store extends BaseEntity {
     @Column(length = 50)
     private String name;
 
+    @Column(length = 50)
+    private String address;
     //Double? Float?
     private Float score;
 }

@@ -2,6 +2,7 @@ package umc.study.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.w3c.dom.Text;
 import umc.study.domain.commom.BaseEntity;
 
 @Entity
@@ -19,7 +20,8 @@ public class Terms extends BaseEntity {
     @Column(length = 20)
     private String title;
 
+    @Lob
     private String body;
 
-    private Boolean optional;
+    private boolean optional;
 }
