@@ -20,13 +20,16 @@ public class Store extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "region_id")
+    @Column(nullable = false)
     private Region region;
 
-    @Column(length = 50)
+    @Column(nullable = false, length = 50)
     private String name;
 
     @Column(length = 50)
     private String address;
+
     //Double? Float?
+    @Column(nullable = false)
     private Float score;
 }

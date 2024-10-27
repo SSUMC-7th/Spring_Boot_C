@@ -17,11 +17,13 @@ public class Terms extends BaseEntity {
     @Column(name = "terms_id")
     private Long id;
 
-    @Column(length = 20)
+    @Column(nullable = false, length = 20)
     private String title;
 
     @Lob
+    @Column(nullable = false)
     private String body;
 
+    @Column(nullable = false)
     private boolean optional;
 }

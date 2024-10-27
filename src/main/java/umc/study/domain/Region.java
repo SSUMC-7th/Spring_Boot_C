@@ -16,6 +16,6 @@ public class Region extends BaseEntity {
     @Column(name = "region_id")
     private Long id;
 
-    @Column(length = 20)
+    @Column(nullable = false, length = 20)
     private String name;
 }

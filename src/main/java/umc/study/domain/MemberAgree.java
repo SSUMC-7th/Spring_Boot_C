@@ -18,9 +18,11 @@ public class MemberAgree extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
+    @Column(nullable = false)
     private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "terms_id")
+    @Column(nullable = false)
     private Terms terms;
 }

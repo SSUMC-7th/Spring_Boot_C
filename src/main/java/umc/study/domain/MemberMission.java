@@ -19,13 +19,16 @@ public class MemberMission extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
+    @Column(nullable = false)
     private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mission_id")
+    @Column(nullable = false)
     private Mission mission;
 
     //status에 따른 이름 바꿔주기
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private MissionStatus missionStatus;
 }

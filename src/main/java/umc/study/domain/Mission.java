@@ -20,12 +20,16 @@ public class Mission extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
+    @Column(nullable = false)
     private Store store;
 
+    @Column(nullable = false)
     private Integer reward;
 
+    @Column(nullable = false)
     private LocalDateTime deadline;
 
     @Lob
+    @Column(nullable = false)
     private String missionSpec;
 }

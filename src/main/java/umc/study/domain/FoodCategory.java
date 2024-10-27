@@ -16,6 +16,6 @@ public class FoodCategory extends BaseEntity {
     @Column(name = "food_category_id")
     private Long id;
 
-    @Column(length = 15)
+    @Column(nullable = false, length = 15)
     private String name;
 }
