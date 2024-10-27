@@ -25,7 +25,7 @@ public class Review extends BaseEntity {
     private Store store;
 
     @Lob
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false, columnDefinition = "text ")
     private String body;
 
     @Column(nullable = false)
