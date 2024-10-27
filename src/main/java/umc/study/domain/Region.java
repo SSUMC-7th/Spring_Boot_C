@@ -1,11 +1,12 @@
 package umc.study.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import umc.study.domain.common.BaseEntity;
+import umc.study.domain.mapping.MemberAgree;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -19,4 +20,10 @@ public class Region extends BaseEntity {
     private Long id;
 
     private String name;
+
+    @OneToMany(mappedBy = "region", cascade = CascadeType.ALL)
+    private List<Mission> missionList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "region", cascade = CascadeType.ALL)
+    private List<Review> reviewList = new ArrayList<>();
 }
