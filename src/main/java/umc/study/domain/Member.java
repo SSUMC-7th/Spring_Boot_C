@@ -1,5 +1,6 @@
 package umc.study.domain;
 
+import com.mysql.cj.protocol.ColumnDefinition;
 import jakarta.persistence.*;
 import lombok.*;
 import umc.study.domain.common.BaseEntity;
@@ -24,23 +25,29 @@ public class Member extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 20)
     private String name;
 
+    @Column(nullable = false, length = 40)
     private String address;
 
+    @Column(nullable = false, length = 40)
     private String specAddress;
 
     @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "VARCHAR(10)")
     private Gender gender;
 
     @Enumerated(EnumType.STRING)
     private SocialType socialType;
 
     @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
     private MemberStatus status;
 
     private LocalDate inactiveDate;
 
+    @Column(nullable = false, length = 50)
     private String email;
 
     private String point;
