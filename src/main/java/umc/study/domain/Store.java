@@ -18,7 +18,7 @@ public class Store extends BaseEntity {
     @Column(name = "store_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "region_id")
     private Region region;
 
