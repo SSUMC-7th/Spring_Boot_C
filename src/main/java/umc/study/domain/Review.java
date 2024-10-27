@@ -2,6 +2,7 @@ package umc.study.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.w3c.dom.Text;
 import umc.study.domain.common.BaseEntity;
 
 @Entity
@@ -15,6 +16,9 @@ public class Review extends BaseEntity {
     private Long id;
 
     private String title;
+
+    @Column(columnDefinition = "TEXT")
+    private String body;
 
     private Float score;
 

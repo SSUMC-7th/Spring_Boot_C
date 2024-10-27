@@ -18,6 +18,8 @@ public class FoodCategory extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false, length = 15)
     private String name;
 
     @OneToMany(mappedBy = "food_category", cascade = CascadeType.ALL)
