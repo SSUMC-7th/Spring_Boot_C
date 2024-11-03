@@ -37,24 +37,14 @@ dependencies {
 
 	//QueryDSL
 	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
-	annotationProcessor "com.qeruydsl:querydsl-apt:5.0.0:jakarta"
+	annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"
 	annotationProcessor "jakarta.annotation:jakarta.annotation-api"
-	annotationProcessor "jarkarta.persistence:jakarta.persistence-api"
+	annotationProcessor "jakarta.persistence:jakarta.persistence-api"
 
-	implementation 'comfasterxml.jackson.core:jackson-databind:2.13.3'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
 	implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.3'
 	implementation 'com.fasterxml.jackson.core:jackson-core:2.13.3'
 
-
-	compileOnly 'org.projectlombok:lombok:1.18.22'
-	annotationProcessor 'org.projectlombok:lombok:1.18.22'
-
-	implementation 'org.hibernate:hibernate-core:5.6.9.Final'
-
-	implementation 'org.springdoc:springdoc-openapi-ui:1.6.9'
-	implementation 'org.springdoc:springdoc-openapi-data-rest:1.6.9'
-
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 sourceSets {
