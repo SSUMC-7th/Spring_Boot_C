@@ -1,4 +1,4 @@
-package umc.study.domain.commom;
+package umc.study.domain.common;
 
 
 import jakarta.persistence.*;

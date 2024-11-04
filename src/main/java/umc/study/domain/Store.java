@@ -3,8 +3,7 @@ package umc.study.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.web.service.annotation.GetExchange;
-import umc.study.domain.commom.BaseEntity;
+import umc.study.domain.common.BaseEntity;
 
 @Entity
 @Getter
