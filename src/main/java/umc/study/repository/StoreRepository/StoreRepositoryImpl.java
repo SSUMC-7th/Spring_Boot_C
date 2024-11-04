@@ -1,6 +1,5 @@
 package umc.study.repository.StoreRepository;
 
-
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
