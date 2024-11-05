@@ -17,7 +17,7 @@ public class StoreRepositoryImpl implements StoreRepositoryCustom{
 
     @Override
     public List<Store> dynamicQueryWithBooleanBuilder(String name, Float score) {
-        BooleanBuilder predicate = new BooleanBuilder();
+        BooleanBuilder predicate = new BooleanBuilder();// predicate은 쿼리 조건을 누적하기 위한 객체
 
         if (name != null) {
             predicate.and(store.name.eq(name));

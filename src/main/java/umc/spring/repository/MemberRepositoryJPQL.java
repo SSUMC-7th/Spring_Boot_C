@@ -8,7 +8,7 @@ import umc.spring.domain.enums.MemberStatus;
 
 import java.util.List;
 
-public interface MemberRepository extends JpaRepository<Member, Long> {
+public interface MemberRepositoryJPQL extends JpaRepository<Member, Long> {
 
     //1. 메서드 이름으로 쿼리 생성
     //List<Member> findByNameAndStatus(String name, MemberStatus status);

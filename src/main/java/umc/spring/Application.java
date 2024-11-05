@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import umc.spring.service.MemberService.MemberQueryService;
 import umc.spring.service.StoreService.StoreQueryService;
 
 @SpringBootApplication
@@ -32,6 +33,17 @@ public class Application {
 
 			storeService.findStoresByNameAndScore(name, score)
 					.forEach(System.out::println);
+
+
+			//네번째 미션
+			System.out.println("------------------마이페이지 화면 QueryDSL ------------------");
+			MemberQueryService memberQueryService = context.getBean(MemberQueryService.class);
+
+			Long memberId = 1L;
+
+			memberQueryService.findMember(memberId)
+					.forEach(System.out::println);
+
 		};
 	}
 }
