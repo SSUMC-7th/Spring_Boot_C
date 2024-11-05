@@ -15,6 +15,7 @@ import java.util.Optional;
 public class StoreQueryServiceImpl implements StoreQueryService {
     private final StoreRepository storeRepository;
 
+    // 제공할 기능을 여기서 override 해서 구현
     @Override
     public Optional<Store> findStore(Long id) {
         return storeRepository.findById(id);

@@ -39,12 +39,12 @@ public class Store extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Store [" +
+        return "Store {" +
                 "id=" + id +
                 ", name='" + name + "'\'" +
                 ", address='" + address + '\'' +
                 ", score=" + score +
                 ", region=" + (region != null ? region.getName() : "N/A") +
-                "]";
+                "}";
     }
 }

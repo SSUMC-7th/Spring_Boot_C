@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface StoreQueryService {
+
+    // 제공할 기능을 여기서 선언
     Optional<Store> findStore(Long id);
     List<Store> findStoresByNameAndScore(String name, float score);
 }

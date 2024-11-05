@@ -28,7 +28,8 @@ public class Application {
 			System.out.println("Name: " + name);
 			System.out.println("Score: " + score);
 
-			storeService.findStoresByNameAndScore(name, score).forEach(System.out::println);
+			storeService.findStoresByNameAndScore(name, score)
+					.forEach(System.out::println);
 		};
 	}
 }
