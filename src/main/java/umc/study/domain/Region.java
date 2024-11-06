@@ -2,7 +2,9 @@ package umc.study.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import umc.study.domain.common.BaseEntity;
+
+import umc.study.domain.commom.BaseEntity;
+
 
 @Entity
 @Getter

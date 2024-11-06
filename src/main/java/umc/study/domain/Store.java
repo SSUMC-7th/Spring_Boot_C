@@ -3,10 +3,12 @@ package umc.study.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import umc.study.domain.common.BaseEntity;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.web.service.annotation.GetExchange;
+import umc.study.domain.commom.BaseEntity;
+
 
 @Entity
 @Getter
@@ -49,4 +51,5 @@ public class Store extends BaseEntity {
                 ", region=" + (region != null ? region.getName() : "N/A") + // region의 이름 출력
                 '}';
     }
+
 }
