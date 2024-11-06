@@ -3,8 +3,12 @@ package umc.study.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.service.annotation.GetExchange;
 import umc.study.domain.commom.BaseEntity;
+
 
 @Entity
 @Getter
@@ -28,7 +32,24 @@ public class Store extends BaseEntity {
     @Column(length = 50)
     private String address;
 
-    //Double? Float?
     @Column(nullable = false)
     private Float score;
+
+    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
+    private List<Mission> missionList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
+    private List<Review> reviewList = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "Store{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", score=" + score +
+                ", region=" + (region != null ? region.getName() : "N/A") + // region의 이름 출력
+                '}';
+    }
+
 }

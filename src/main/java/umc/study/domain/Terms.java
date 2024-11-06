@@ -2,8 +2,10 @@ package umc.study.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import org.w3c.dom.Text;
 import umc.study.domain.commom.BaseEntity;
+
 
 @Entity
 @Getter
