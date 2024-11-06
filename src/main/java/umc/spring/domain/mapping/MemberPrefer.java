@@ -20,8 +20,7 @@ public class MemberPrefer extends BaseEntity {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    /*//이 부분 써야 하는지 빼야 하는지 잘 모르겠음
-    @ManyToOne(fetch = FetchType.LAZY)
+    /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private FoodCategory foodCategory;*/
 }
