@@ -38,4 +38,15 @@ public class Store extends BaseEntity {
         this.region = region;
         region.getStores().add(this);
     }
+
+    @Override
+    public String toString() {
+        return "Store{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", score=" + score +
+                ", region=" + (region != null ? region.getName() : "N/A") + // region의 이름 출력
+                '}';
+    }
 }
