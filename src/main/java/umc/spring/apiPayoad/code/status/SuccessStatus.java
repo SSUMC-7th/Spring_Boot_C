@@ -11,9 +11,9 @@ import umc.spring.apiPayoad.code.ReasonDTO;
 public enum SuccessStatus implements BaseCode {
 
     // 일반적인 응답
+    // (현재는  _OK 만 있는 데 성공 응답을 추가하고 싶으면 ENUM 형식으로 계속 밑에 추가하면 됩니다!)
     _OK(HttpStatus.OK, "COMMON 200", "성공입니다.");
 
-    // (현재는  _OK 만 있는 데 성공 응답을 추가하고 싶으면 ENUM 형식으로 계속 밑에 추가하면 됩니다!)
 
     private final HttpStatus httpStatus;
     private final String code;
