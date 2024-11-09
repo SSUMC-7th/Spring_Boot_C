@@ -15,8 +15,9 @@ public class ApiResponse<T> {
     private final Boolean isSuccess;
     private final String code;
     private final String message;
+    
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private T result;
+    private T result;   // result의 형태를 모르니 GENERIC으로 생성
 
     // 성공한 경우 응답 생성
 //    public static <T> ApiResponse<T> onSuccess(T result) {
