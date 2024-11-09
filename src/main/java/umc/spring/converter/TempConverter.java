@@ -9,4 +9,10 @@ public class TempConverter {
                 .testString("This is TEST!")
                 .build();
     }
+
+    public static TempResponse.TempExceptionDTO toTempExceptionDTO(Integer flag) {
+        return TempResponse.TempExceptionDTO.builder()
+                .flag(flag)
+                .build();
+    }
 }

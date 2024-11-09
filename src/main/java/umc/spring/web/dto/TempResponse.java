@@ -7,11 +7,19 @@ import lombok.NoArgsConstructor;
 
 public class TempResponse {
 
-    @Getter
     @Builder
+    @Getter
     @NoArgsConstructor
     @AllArgsConstructor
     public static class TempTestDTO{
         String testString;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class TempExceptionDTO{
+        Integer flag;
     }
 }
