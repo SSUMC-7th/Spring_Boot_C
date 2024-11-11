@@ -19,4 +19,12 @@ public class TempResponse {
 
         String testString;
     }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class TempExceptionDTO{
+        Integer flag;  //flag가 2인 경우 exception을 만드는 경우에 쓰임
+    }
 }
