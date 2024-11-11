@@ -10,7 +10,7 @@ public class ReasonDTO {
 
     private HttpStatus httpStatus;
 
-    private final Boolean isSuccess;
+    private final boolean isSuccess;
     private final String code;
     private final String message;
 

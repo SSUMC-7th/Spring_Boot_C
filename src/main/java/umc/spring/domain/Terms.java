@@ -26,7 +26,7 @@ public class Terms extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     private String body;
 
-    private Boolean optional;
+    private boolean optional;
 
     @OneToMany(mappedBy = "terms", cascade = CascadeType.ALL)
     private List<MemberAgree> memberAgrees=new ArrayList<>();

@@ -12,7 +12,7 @@ import umc.spring.apiPayload.code.ReasonDTO;
 public enum SuccessStatus implements BaseCode {
 
     //일반적인 응답
-    _OK(HttpStatus.OK, "COMMON200", "성공입니다.");
+    _OK(HttpStatus.OK, "COMMON 200", "성공입니다.");
 
     //이곳에 _OK말고도 성공 응답을 계속 추가할 수 있음
 
