@@ -20,20 +20,17 @@ public class ApiResponse<T> {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private T result;  //실제로 클라이언트에게 필요한 데이터, result 형태 모르니까 GENERIC으로 생성
 
-    //성공한 경우 응답 생성
-    public static <T> ApiResponse<T> onSuccess(T result){
+    // 성공한 경우 응답 생성
+    public static <T> ApiResponse<T> onSuccess(T result) {
         return new ApiResponse<>(true, SuccessStatus._OK.getCode(), SuccessStatus._OK.getMessage(), result);
     }
 
-    public static <T> ApiResponse<T> of(BaseCode code, T result){
+    public static <T> ApiResponse<T> of(BaseCode code, T result) {
         return new ApiResponse<>(true, code.getReasonHttpStatus().getCode(), code.getReasonHttpStatus().getMessage(), result);
     }
 
-    //실패한 경웅 응답 생성
-    public static <T> ApiResponse<T> onFailure(String code, String message, T data){
+    // 실패한 경우 응답 생성
+    public static <T> ApiResponse<T> onFailure(String code, String message, T data) {
         return new ApiResponse<>(false, code, message, data);
     }
-
-
-
 }

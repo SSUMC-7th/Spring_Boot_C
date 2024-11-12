@@ -20,6 +20,7 @@ public enum SuccessStatus implements BaseCode {
     private final String code;
     private final String message;
 
+    // BaseCode 인터페이스를 오버라이딩한다.
     @Override
     public ReasonDTO getReason() {
         return ReasonDTO.builder()

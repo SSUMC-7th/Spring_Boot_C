@@ -25,6 +25,6 @@ public class TempResponse {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class TempExceptionDTO{
-        Integer flag;  //flag가 2인 경우 exception을 만드는 경우에 쓰임
+        Integer flag;  //flag가 1인 경우 exception을 만드는 경우에 쓰임
     }
 }
