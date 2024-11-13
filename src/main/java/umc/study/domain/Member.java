@@ -3,7 +3,7 @@ package umc.study.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
-import umc.study.domain.commom.BaseEntity;
+import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.MemberStatus;
 import umc.study.domain.enums.SocialType;
@@ -59,13 +59,14 @@ public class Member extends BaseEntity {
     private Integer point;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<MemberAgree> memberAgreeList = new ArrayList<>();
+    private final List<MemberAgree> memberAgreeList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<MemberPrefer> memberPreferList = new ArrayList<>();
+    private final List<MemberPrefer> memberPreferList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Review> reviewList = new ArrayList<>();
+    private final List<Review> reviewList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<MemberMission> memberMissionList = new ArrayList<>();
+    private final List<MemberMission> memberMissionList = new ArrayList<>();
+}

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.service.annotation.GetExchange;
-import umc.study.domain.commom.BaseEntity;
+import umc.study.domain.common.BaseEntity;
 
 
 @Entity
@@ -36,10 +36,10 @@ public class Store extends BaseEntity {
     private Float score;
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
-    private List<Mission> missionList = new ArrayList<>();
+    private final List<Mission> missionList = new ArrayList<>();
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
-    private List<Review> reviewList = new ArrayList<>();
+    private final List<Review> reviewList = new ArrayList<>();
 
     @Override
     public String toString() {
