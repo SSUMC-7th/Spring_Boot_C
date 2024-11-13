@@ -17,7 +17,8 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@Bean
+	//다음 주차 실습에서 번거로워서 주석 걺
+	/*@Bean
 	public CommandLineRunner run(ApplicationContext context) {
 		return args -> {
 			StoreQueryService storeService = context.getBean(StoreQueryService.class);
@@ -45,5 +46,5 @@ public class Application {
 					.forEach(System.out::println);
 
 		};
-	}
+	}*/
 }
