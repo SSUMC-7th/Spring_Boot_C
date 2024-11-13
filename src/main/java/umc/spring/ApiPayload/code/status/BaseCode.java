@@ -1,4 +1,10 @@
 package umc.spring.ApiPayload.code.status;
 
-public class BaseCode {
+import umc.spring.ApiPayload.code.ReasonDTO;
+
+public interface BaseCode {
+
+    ReasonDTO getReason();
+
+    ReasonDTO getReasonHttpStatus();
 }
