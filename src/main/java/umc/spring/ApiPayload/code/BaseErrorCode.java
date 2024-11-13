@@ -1,6 +1,4 @@
-package umc.spring.ApiPayload.code.status;
-
-import umc.spring.ApiPayload.code.ErrorReasonDTO;
+package umc.spring.ApiPayload.code;
 
 public interface BaseErrorCode {
 
