@@ -35,6 +35,7 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 	implementation 'org.springframework.boot:spring-boot-starter-validation' //에러 핸들러 위해 추가
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0' //Swagger 세팅
 
 	//QueryDSL
 	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
