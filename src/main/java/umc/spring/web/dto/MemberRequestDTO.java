@@ -16,6 +16,6 @@ public class MemberRequestDTO {
         Integer birthDay;
         String address;
         String specAddress;
-        List<Long> preferCategory;
+        List<Long> preferCategory; //Long인 이유는 프론트엔드에서 사용자가 선택한 음식 카테고리 값이 id값으로 넘겨주기 때문
     }
 }
