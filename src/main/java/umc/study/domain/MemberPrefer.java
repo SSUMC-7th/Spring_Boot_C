@@ -6,6 +6,7 @@ import lombok.*;
 import umc.study.domain.common.BaseEntity;
 
 
+@Setter
 @Entity
 @Getter
 @Builder
