@@ -28,7 +28,14 @@ public class MemberPrefer extends BaseEntity {
 
     //연관관계 메서드
     public void setMember(Member member) {
+        if(this.member!=null) //이전에 member가 이미 설정되어 있는 경우 제거 후 재설정
+            member.getMemberPreferList().remove(this);
+
         this.member = member;
         member.getMemberPreferList().add(this);
+    }
+
+    public void setFoodCategory(FoodCategory foodCategory) {
+        this.foodCategory = foodCategory;
     }
 }
