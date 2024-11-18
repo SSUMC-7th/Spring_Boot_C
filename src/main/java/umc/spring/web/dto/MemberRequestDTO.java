@@ -10,6 +10,7 @@ public class MemberRequestDTO {
     public static class JoinDto{
         String name;
         Integer gender;
+        Integer age;
         Integer birthYear;
         Integer birthMonth;
         Integer birthDay;
