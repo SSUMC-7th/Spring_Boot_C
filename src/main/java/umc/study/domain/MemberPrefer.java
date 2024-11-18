@@ -5,7 +5,6 @@ import lombok.*;
 
 import umc.study.domain.common.BaseEntity;
 
-
 @Setter
 @Entity
 @Getter
@@ -16,14 +15,24 @@ public class MemberPrefer extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_prefer_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false, name = "member_id")
+    @JoinColumn(name = "member_id")
     private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false, name = "food_category_id")
+    @JoinColumn(name = "category_id")
     private FoodCategory foodCategory;
+
+    public void setMember(Member member){
+        if(this.member != null)
+            member.getMemberPreferList().remove(this);
+        this.member = member;
+        member.getMemberPreferList().add(this);
+    }
+
+    public void setFoodCategory(FoodCategory foodCategory){
+        this.foodCategory = foodCategory;
+    }
 }
