@@ -18,5 +18,6 @@ public class MemberResponseDTO {
     public static class JoinResultDTO{
         Long memberId;
         LocalDateTime createdAt;
+        List<Long> memberPreferList;
     }
 }

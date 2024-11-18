@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Mission extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,7 +24,6 @@ public class Mission extends BaseEntity {
 
     private LocalDate deadline;
 
-    @Column(columnDefinition = "TEXT")
     private String missionSpec;
 
     @ManyToOne(fetch = FetchType.LAZY)

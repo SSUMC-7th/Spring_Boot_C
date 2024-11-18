@@ -1,4 +1,11 @@
 package umc.spring.service.MemberService;
 
-public class MemberQueryService {
+import umc.spring.domain.Member;
+
+import java.util.Optional;
+
+public interface MemberQueryService {
+
+    Optional<Member> findMember(Long id);
+
 }
