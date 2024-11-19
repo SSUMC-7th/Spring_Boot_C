@@ -3,6 +3,8 @@ package umc.study.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.MemberStatus;
@@ -12,6 +14,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@DynamicUpdate
+@DynamicInsert
 @Entity
 @Getter
 @Builder
@@ -32,7 +36,7 @@ public class Member extends BaseEntity {
     @Column(nullable = false, columnDefinition = "varchar(10)")
     private Gender gender;
 
-    @Column(nullable = false)
+    @ColumnDefault("0")
     private Integer age;
 
     @Column(nullable = false, length = 40)
@@ -47,7 +51,7 @@ public class Member extends BaseEntity {
     private MemberStatus memberStatus;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "varchar(10)")
+    @Column(columnDefinition = "varchar(10)")
     private SocialType socialType;
 
     private LocalDate inactiveDate;
@@ -55,18 +59,18 @@ public class Member extends BaseEntity {
     @Column(length = 50)
     private String email;
 
-    @Column(nullable = false)
+    @ColumnDefault("0")
     private Integer point;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private final List<MemberAgree> memberAgreeList = new ArrayList<>();
+    private  List<MemberAgree> memberAgreeList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private final List<MemberPrefer> memberPreferList = new ArrayList<>();
+    private  List<MemberPrefer> memberPreferList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private final List<Review> reviewList = new ArrayList<>();
+    private  List<Review> reviewList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private final List<MemberMission> memberMissionList = new ArrayList<>();
+    private  List<MemberMission> memberMissionList = new ArrayList<>();
 }
