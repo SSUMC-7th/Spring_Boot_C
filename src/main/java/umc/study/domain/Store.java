@@ -3,6 +3,7 @@ package umc.study.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class Store extends BaseEntity {
     @Column(length = 50)
     private String address;
 
-    @ColumnDefault("리뷰 없음")
+    @ColumnDefault("0.0")
     private Float score;
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
