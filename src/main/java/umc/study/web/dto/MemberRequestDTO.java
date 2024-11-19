@@ -5,13 +5,14 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import umc.study.validation.annotation.ExistCategories;
+import umc.study.validation.annotation.ExistMemberMission;
 
 import java.util.List;
 
 public class MemberRequestDTO {
 
     @Getter
-    public static class JoinDto{
+    public static class JoinDto {
         @NotBlank
         String name;
         @NotNull
