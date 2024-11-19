@@ -8,6 +8,7 @@ public class MissionRequestDTO {
 
     @Getter
     public static class MissionJoinDTO {
+
         @IsChallenging
         Long memberId;
 
