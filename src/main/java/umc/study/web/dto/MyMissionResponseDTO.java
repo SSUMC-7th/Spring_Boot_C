@@ -7,7 +7,8 @@ import java.util.List;
 
 public class MyMissionResponseDTO {
     public static class challengeResultDTO{
-        List<MemberMission> createdMyMissions;
+        Long memberId;
+        List<Long> createdMyMissions;
         LocalDateTime createdAt;
     }
 }
