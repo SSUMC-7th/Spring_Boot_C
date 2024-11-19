@@ -51,7 +51,7 @@ public class Member extends BaseEntity {
     private MemberStatus memberStatus;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "varchar(10)")
+    @Column(columnDefinition = "varchar(10)")
     private SocialType socialType;
 
     private LocalDate inactiveDate;
