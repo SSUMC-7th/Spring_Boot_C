@@ -6,6 +6,7 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.web.service.annotation.GetExchange;
 import umc.study.domain.common.BaseEntity;
 
@@ -32,7 +33,7 @@ public class Store extends BaseEntity {
     @Column(length = 50)
     private String address;
 
-    @Column(nullable = false)
+    @ColumnDefault("리뷰 없음")
     private Float score;
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
