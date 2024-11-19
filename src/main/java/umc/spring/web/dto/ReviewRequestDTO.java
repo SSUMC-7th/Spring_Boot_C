@@ -6,7 +6,7 @@ public class ReviewRequestDTO {
     @Getter
     public static class JoinDto{
         String title;
-        String Body;
-        Float Score;
+        String body;
+        Float score;
     }
 }
