@@ -3,9 +3,14 @@ package umc.study.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.MissionStatus;
 
+@DynamicUpdate
+@DynamicInsert
 @Entity
 @Getter
 @Builder
@@ -27,7 +32,7 @@ public class MemberMission extends BaseEntity {
     private Mission mission;
 
     //status에 따른 이름 바꿔주기
+    @ColumnDefault("'CHALLENGING'")
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "varchar(15) default 'CHALLENGING'")
     private MissionStatus missionStatus;
 }
