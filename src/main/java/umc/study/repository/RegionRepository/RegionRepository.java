@@ -1,8 +1,8 @@
 package umc.study.repository.RegionRepository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import umc.study.domain.Member;
+import umc.study.domain.Region;
 
-public interface RegionRepository extends JpaRepository<Member, Long> {
+public interface RegionRepository extends JpaRepository<Region, Long> {
 }
 
