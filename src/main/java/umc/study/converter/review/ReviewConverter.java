@@ -21,6 +21,7 @@ public class ReviewConverter {
 
         return Review.builder()
                 .member(writerMember)
+                .score(request.getScore())
                 .store(writtenStore)
                 .body(request.getReviewContent())
                 .build();
