@@ -15,7 +15,7 @@ public class StoreConverter {
                 .build();
     }
 
-    public static Store toStore(StoreRequestDTO.JoinDTO request){
+    public static Store toStore(StoreRequestDTO.JoinDTO request,Long regionId){
 
         return Store.builder()
                 .name(request.getName())
