@@ -5,6 +5,7 @@ import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import umc.study.apiPayLoad.code.status.ErrorStatus;
+import umc.study.service.MissionService.MissionRepositoryService;
 import umc.study.validation.annotation.ExistMembers;
 import umc.study.validation.annotation.ExistMissions;
 
