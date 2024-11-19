@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import umc.study.apiPayLoad.code.status.ErrorStatus;
 import umc.study.repository.FoodCategoryRepository.FoodCategoryRepository;
 import umc.study.repository.MemberRepository.MemberRepository;
+import umc.study.service.MemberService.MemberRepositoryService;
 import umc.study.validation.annotation.ExistCategories;
 import umc.study.validation.annotation.ExistMembers;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MemberExistValidator implements ConstraintValidator<ExistMembers, List<Long>> {
 
-    private final MemberRepository memberRepository;
+    private final MemberRepositoryService memberRepositoryService
 
     @Override
     public void initialize(ExistMembers constraintAnnotation) {
@@ -26,7 +27,7 @@ public class MemberExistValidator implements ConstraintValidator<ExistMembers, L
     @Override
     public boolean isValid(List<Long> values, ConstraintValidatorContext context) {
         boolean isValid = values.stream()
-                .allMatch(value -> memberRepository.existsById(value));
+                .allMatch(value -> memberRepositoryService.isInMemberRepository(value));
 
         if (!isValid) {
             context.disableDefaultConstraintViolation();

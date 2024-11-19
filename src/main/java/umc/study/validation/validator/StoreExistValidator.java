@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import umc.study.apiPayLoad.code.status.ErrorStatus;
 import umc.study.repository.FoodCategoryRepository.FoodCategoryRepository;
 import umc.study.repository.StoreRepository.StoreRepository;
+import umc.study.service.MemberService.StoreRepositoryService;
 import umc.study.validation.annotation.ExistCategories;
 import umc.study.validation.annotation.ExistStores;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class StoreExistValidator implements ConstraintValidator<ExistStores, List<Long>> {
 
-    private final StoreRepository storeRepository;
+    private final StoreRepositoryService storeRepositoryService;
 
     @Override
     public void initialize(ExistStores constraintAnnotation) {
@@ -26,7 +27,7 @@ public class StoreExistValidator implements ConstraintValidator<ExistStores, Lis
     @Override
     public boolean isValid(List<Long> values, ConstraintValidatorContext context) {
         boolean isValid = values.stream()
-                .allMatch(value -> storeRepository.existsById(value));
+                .allMatch(value -> storeRepositoryService.isInStoreRepository(value));
 
         if (!isValid) {
             context.disableDefaultConstraintViolation();
