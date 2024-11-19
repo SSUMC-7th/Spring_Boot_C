@@ -6,5 +6,5 @@ import umc.study.web.dto.store.StoreRequestDTO;
 
 public interface StoreCommandService {
 
-    public Store joinMember(StoreRequestDTO.JoinDTO request);
+    public Store joinStore(StoreRequestDTO.JoinDTO request);
 }
