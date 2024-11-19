@@ -15,7 +15,7 @@ public class MissionResponseDTO {
     public static class MissionResultDTO {
         Long missionId;
         Long memberId;
-        String status;
+        Integer status;
         LocalDateTime createdAt;
         LocalDateTime updatedAt;
     }
