@@ -2,14 +2,16 @@ package umc.study.web.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
+import umc.study.validation.annotation.ExistMembers;
+import umc.study.validation.annotation.ExistStores;
 
 public class ReviewRequestDTO {
 
     @Getter
     public static class writeReviewDTO{
-        @NotBlank
+        @ExistMembers
         Long memberId;
-        @NotBlank
+        @ExistStores
         Long storeId;
         @NotBlank
         Float score;
