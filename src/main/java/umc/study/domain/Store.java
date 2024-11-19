@@ -8,10 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.web.service.annotation.GetExchange;
 import umc.study.domain.common.BaseEntity;
 
 
+@DynamicInsert
+@DynamicUpdate
 @Entity
 @Getter
 @Builder
