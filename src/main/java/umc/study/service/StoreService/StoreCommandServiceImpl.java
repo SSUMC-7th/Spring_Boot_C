@@ -2,6 +2,7 @@ package umc.study.service.StoreService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import umc.study.apiPayLoad.code.status.ErrorStatus;
 import umc.study.apiPayLoad.exception.handler.RegionHandler;
 import umc.study.converter.StoreConverter;
@@ -23,6 +24,7 @@ public class StoreCommandServiceImpl implements StoreCommandService{
     private final RegionRepository regionRepository;
 
     @Override
+    @Transactional
     public Store joinStore(StoreRequestDTO.JoinDTO request) {
 
         Long regionId = request.getRegionId();
