@@ -2,6 +2,7 @@ package umc.study.service.MissionService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import umc.study.apiPayLoad.code.status.ErrorStatus;
 import umc.study.apiPayLoad.exception.handler.MemberHandler;
 import umc.study.apiPayLoad.exception.handler.MissionHandler;
@@ -26,6 +27,7 @@ public class MyMissionCommandServiceImpl implements MyMissionCommandService{
     private final MemberMissionRepository memberMissionRepository;
 
     @Override
+    @Transactional
     public List<MemberMission> makeMyMission(MyMissionRequestDTO.challengeDTO request) {
         Member member = memberRepository.findById(request.getMemberId()).orElseThrow(()-> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
         List<Mission> missions = request.getChallengeMissions().stream()
