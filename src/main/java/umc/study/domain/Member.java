@@ -36,7 +36,7 @@ public class Member extends BaseEntity {
     @Column(nullable = false, columnDefinition = "varchar(10)")
     private Gender gender;
 
-    @Column(nullable = false)
+    @Column
     private Integer age;
 
     @Column(nullable = false, length = 40)
