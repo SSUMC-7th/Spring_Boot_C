@@ -17,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MemberExistValidator implements ConstraintValidator<ExistMembers, List<Long>> {
 
-    private final MemberRepositoryService memberRepositoryService
+    private final MemberRepositoryService memberRepositoryService;
 
     @Override
     public void initialize(ExistMembers constraintAnnotation) {
