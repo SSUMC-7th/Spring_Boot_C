@@ -2,6 +2,9 @@ package umc.spring.service.ReviewService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import umc.spring.ApiPayload.code.status.ErrorStatus;
+import umc.spring.ApiPayload.exception.handler.MemberHandler;
+import umc.spring.ApiPayload.exception.handler.StoreHandler;
 import umc.spring.converter.ReviewConverter;
 import umc.spring.domain.Member;
 import umc.spring.domain.Review;
@@ -24,9 +27,9 @@ public class ReviewCommandServiceImpl implements ReviewCommandService {
     public Review joinReview(ReviewRequestDTO.ReviewJoinDto request) {
         // DB에서 임의의 멤버와 상점을 가져오기
         Member member = memberRepository.findAll().stream().findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("No member found in the database"));
+                .orElseThrow(() ->  new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
         Store store = storeRepository.findAll().stream().findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("No store found in the database"));
+                .orElseThrow(() -> new StoreHandler(ErrorStatus.STORE_NOT_FOUND));
 
         // 리뷰 생성
         Review newReview = ReviewConverter.toReview(request, member, store);
