@@ -6,7 +6,7 @@ public class StoreRequestDTO {
     @Getter
     public static class JoinDTO{
         String name;
-        String regionName;
+        Long regionId;
         String address;
     }
 }
