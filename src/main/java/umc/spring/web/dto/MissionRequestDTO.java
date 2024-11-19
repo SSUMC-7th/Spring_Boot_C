@@ -4,7 +4,7 @@ import lombok.Getter;
 
 public class MissionRequestDTO {
     @Getter
-    public static class JoinDto{
+    public static class MissionJoinDto{
         String status;
     }
 }
