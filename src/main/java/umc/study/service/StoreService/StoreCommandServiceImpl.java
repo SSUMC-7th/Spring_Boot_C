@@ -11,6 +11,7 @@ import umc.study.domain.Region;
 import umc.study.domain.Store;
 import umc.study.repository.RegionRepository.RegionRepository;
 import umc.study.repository.StoreRepository.StoreRepository;
+import umc.study.validation.annotation.ExistRegions;
 import umc.study.web.dto.store.StoreRequestDTO;
 
 import java.util.Optional;
@@ -26,7 +27,6 @@ public class StoreCommandServiceImpl implements StoreCommandService{
     @Override
     @Transactional
     public Store joinStore(StoreRequestDTO.JoinDTO request) {
-
         Long regionId = request.getRegionId();
         Region storeRegion = regionRepository.findById(regionId).orElseThrow(()->new RegionHandler(ErrorStatus.REGION_NOT_FOUND));
         Store store = StoreConverter.toStore(request,storeRegion);
