@@ -21,7 +21,7 @@ public class ReviewCommandServiceImpl implements ReviewCommandService {
     private final StoreRepository storeRepository;
 
     @Override
-    public Review joinReview(ReviewRequestDTO.JoinDto request) {
+    public Review joinReview(ReviewRequestDTO.ReviewJoinDto request) {
         // DB에서 임의의 멤버와 상점을 가져오기
         Member member = memberRepository.findAll().stream().findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("No member found in the database"));

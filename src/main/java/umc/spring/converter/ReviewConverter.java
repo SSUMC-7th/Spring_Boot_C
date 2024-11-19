@@ -10,14 +10,14 @@ import java.time.LocalDateTime;
 
 
 public class ReviewConverter {
-    public static ReviewResponseDTO.JoinResultDTO toJoinResultDTO(Review review) {
-        return ReviewResponseDTO.JoinResultDTO.builder()
+    public static ReviewResponseDTO.ReviewJoinResultDTO toJoinResultDTO(Review review) {
+        return ReviewResponseDTO.ReviewJoinResultDTO.builder()
                 .memberId(review.getId())
                 .createdAt(LocalDateTime.now())
                 .build();
     }
 
-    public static Review toReview(ReviewRequestDTO.JoinDto request, Member member, Store store) {
+    public static Review toReview(ReviewRequestDTO.ReviewJoinDto request, Member member, Store store) {
         return Review.builder()
                 .title(request.getTitle())
                 .body(request.getBody())
