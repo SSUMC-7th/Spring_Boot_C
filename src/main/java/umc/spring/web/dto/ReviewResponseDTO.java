@@ -15,9 +15,9 @@ public class ReviewResponseDTO {
     @AllArgsConstructor
     public static class AddReviewResultDTO {
         String body;
-        String name;
+        Long memberId;
         Float score;
-        String storeName;
+        Long storeId;
         LocalDateTime createdAt;
     }
 }

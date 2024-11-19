@@ -6,6 +6,4 @@ import umc.spring.domain.Store;
 import java.util.Optional;
 
 public interface StoreRepository extends JpaRepository<Store, Long>, StoreRepositoryCustom {
-
-    Optional<Store> findByName(String name);
 }
