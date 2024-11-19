@@ -1,5 +1,6 @@
 package umc.study.converter;
 
+import umc.study.domain.Region;
 import umc.study.domain.Store;
 import umc.study.web.dto.store.StoreRequestDTO;
 import umc.study.web.dto.store.StoreResponseDTO;
@@ -15,10 +16,11 @@ public class StoreConverter {
                 .build();
     }
 
-    public static Store toStore(StoreRequestDTO.JoinDTO request,Long regionId){
+    public static Store toStore(StoreRequestDTO.JoinDTO request, Region region){
 
         return Store.builder()
                 .name(request.getName())
+                .region(region)
                 .address(request.getAddress())
                 .build();
     }
