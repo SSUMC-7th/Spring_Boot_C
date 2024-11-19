@@ -10,7 +10,6 @@ import umc.spring.apiPayoad.ApiResponse;
 import umc.spring.converter.MemberConverter;
 import umc.spring.domain.Member;
 import umc.spring.service.MemberService.MemberCommandService;
-import umc.spring.service.MemberService.MemberCommandServiceImpl;
 import umc.spring.web.dto.MemberRequestDTO;
 import umc.spring.web.dto.MemberResponseDTO;
 
@@ -22,7 +21,7 @@ public class MemberRestController {
     private final MemberCommandService memberCommandService;
 
     @PostMapping("/")
-    public ApiResponse<MemberResponseDTO.JoinResultDTO> join(@RequestBody @Valid MemberRequestDTO.JoinDTO request) {
+    public ApiResponse<MemberResponseDTO.JoinMemberResultDTO> join(@RequestBody @Valid MemberRequestDTO.JoinMemberDTO request) {
         Member member = memberCommandService.joinMember(request);
         return ApiResponse.onSuccess(MemberConverter.toJoinResultDTO(member));
     }

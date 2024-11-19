@@ -1,5 +1,6 @@
 package umc.spring.domain;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 import umc.spring.domain.common.BaseEntity;
@@ -31,6 +32,7 @@ public class Review extends BaseEntity {
     @JoinColumn(nullable = false, name = "store_id")
     private Store store;
 
+    @Nullable
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
     private List<ReviewImage> reviewImameList = new ArrayList<>();
 }
