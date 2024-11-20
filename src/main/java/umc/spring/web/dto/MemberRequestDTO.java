@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
+import umc.spring.validation.annotation.ExistRegions;
 
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class MemberRequestDTO {
         String address;
         @Size(min = 5, max = 12)
         String specAddress;
+        @ExistRegions
         List<Long> preferCategory;
     }
 
