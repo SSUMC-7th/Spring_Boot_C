@@ -10,6 +10,7 @@ public class MemberRepositoryService {
 
     private final MemberRepository memberRepository;
 
+
     public boolean isInMemberRepository(Long memberId) {
         return memberRepository.existsById(memberId);
     }
