@@ -2,21 +2,18 @@ package umc.study.validation.annotation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
-
 import umc.study.validation.validator.CategoriesExistValidator;
-import umc.study.validation.validator.MemberExistValidator;
-
+import umc.study.validation.validator.StoreExistValidator;
 
 import java.lang.annotation.*;
 
 @Documented
-
-@Constraint(validatedBy = MemberExistValidator.class)
+@Constraint(validatedBy = StoreExistValidator.class)
 @Target( { ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ExistMembers {
+public @interface ExistStores {
 
-    String message() default "해당하는 멤버가 존재하지 않습니다.";
+    String message() default "해당하는 매장이 존재하지 않습니다.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
