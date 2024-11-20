@@ -1,0 +1,39 @@
+package umc.spring.service.ReviewService;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import umc.spring.ApiPayload.code.status.ErrorStatus;
+import umc.spring.ApiPayload.exception.handler.MemberHandler;
+import umc.spring.ApiPayload.exception.handler.StoreHandler;
+import umc.spring.converter.ReviewConverter;
+import umc.spring.domain.Member;
+import umc.spring.domain.Review;
+import umc.spring.domain.Store;
+import umc.spring.repository.MemberRepository;
+import umc.spring.repository.ReviewRepository;
+import umc.spring.repository.StoreRepository.StoreRepository;
+import umc.spring.web.dto.ReviewRequestDTO;
+
+
+@Service
+@RequiredArgsConstructor
+public class ReviewCommandServiceImpl implements ReviewCommandService {
+
+    private final ReviewRepository reviewRepository;
+    private final MemberRepository memberRepository;
+    private final StoreRepository storeRepository;
+
+    @Override
+    public Review joinReview(ReviewRequestDTO.ReviewJoinDto request) {
+        // DB에서 임의의 멤버와 상점을 가져오기
+        Member member = memberRepository.findAll().stream().findFirst()
+                .orElseThrow(() ->  new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
+        Store store = storeRepository.findAll().stream().findFirst()
+                .orElseThrow(() -> new StoreHandler(ErrorStatus.STORE_NOT_FOUND));
+
+        // 리뷰 생성
+        Review newReview = ReviewConverter.toReview(request, member, store);
+        return reviewRepository.save(newReview);
+    }
+}
+

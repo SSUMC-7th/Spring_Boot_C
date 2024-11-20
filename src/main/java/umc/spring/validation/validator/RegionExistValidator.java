@@ -7,7 +7,10 @@ import org.springframework.stereotype.Component;
 import umc.spring.ApiPayload.code.status.ErrorStatus;
 import umc.spring.repository.FoodCategoryRepository;
 import umc.spring.service.StoreService.RegionRepositoryService;
-import umc.spring.validation.annotation.ExistCategories;
+import umc.spring.validation.annotation.ExistCategories; 
+import umc.spring.service.MemberService.MemberQueryService;
+import umc.spring.service.RegoinService.RegionRepositoryService;
+import umc.spring.validation.annotation.ExistMembers;
 import umc.spring.validation.annotation.ExistRegions;
 
 import java.util.List;
