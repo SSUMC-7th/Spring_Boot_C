@@ -2,8 +2,8 @@ package umc.spring.validation.annotation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
+import umc.spring.validation.validator.CategoriesExistValidator;
 import umc.spring.validation.validator.RegionExistValidator;
-
 import java.lang.annotation.*;
 
 @Documented
