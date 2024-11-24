@@ -33,4 +33,15 @@ public class Review extends BaseEntity {
         this.member = member;
         member.getReviewList().add(this);
     }
+
+    @Override
+    public String toString() {
+        return "Review{" +
+                "id=" + id +
+                ", body='" + body + '\'' +
+                ", score=" + score +
+                ", member=" + member +
+                ", store=" + store +
+                '}';
+    }
 }
