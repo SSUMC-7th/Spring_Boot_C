@@ -37,7 +37,7 @@ public class ReviewResponseDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class MyReviewPreviewDTO {
-        String ownerNickname;
+        String myNickName;
         Float score;
         String body;
         LocalDate createdAt;
