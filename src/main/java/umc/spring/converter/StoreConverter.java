@@ -47,22 +47,9 @@ public class StoreConverter {
                 .build();
     }
     public static StoreResponseDTO.ReviewPreViewListDTO reviewPreViewListDTO(Page<Review> reviewList){
-        if (reviewList == null) {
-            System.out.println("reviewList is null");
-        } else if (reviewList.isEmpty()) {
-            System.out.println("reviewList is empty");
-        } else {
-            System.out.println("reviewList contains elements: " + reviewList.getTotalPages());
-        }
 
         List<StoreResponseDTO.ReviewPreViewDTO> reviewPreViewDTOList = reviewList.stream()
                 .map(StoreConverter::reviewPreViewDTO).collect(Collectors.toList());
-
-        System.out.println("reviewList size: " + reviewList.getTotalElements());
-
-        for(StoreResponseDTO.ReviewPreViewDTO review:reviewPreViewDTOList){
-            System.out.println(review);
-        }
 
         return StoreResponseDTO.ReviewPreViewListDTO.builder()
                 .isLast(reviewList.isLast())
