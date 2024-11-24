@@ -9,25 +9,25 @@ import umc.study.repository.FoodCategoryRepository.FoodCategoryRepository;
 import umc.study.repository.MemberRepository.MemberRepository;
 import umc.study.service.MemberService.MemberRepositoryService;
 import umc.study.validation.annotation.ExistCategories;
+import umc.study.validation.annotation.ExistMember;
 import umc.study.validation.annotation.ExistMembers;
 
 import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class MemberExistValidator implements ConstraintValidator<ExistMembers, List<Long>> {
+public class MemberExistValidator implements ConstraintValidator<ExistMember, Long> {
 
     private final MemberRepositoryService memberRepositoryService;
 
     @Override
-    public void initialize(ExistMembers constraintAnnotation) {
+    public void initialize(ExistMember constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 
     @Override
-    public boolean isValid(List<Long> values, ConstraintValidatorContext context) {
-        boolean isValid = values.stream()
-                .allMatch(value -> memberRepositoryService.isInMemberRepository(value));
+    public boolean isValid(Long value, ConstraintValidatorContext context) {
+        boolean isValid = memberRepositoryService.isInMemberRepository(value);
 
         if (!isValid) {
             context.disableDefaultConstraintViolation();
@@ -35,6 +35,5 @@ public class MemberExistValidator implements ConstraintValidator<ExistMembers, L
         }
 
         return isValid;
-
     }
 }

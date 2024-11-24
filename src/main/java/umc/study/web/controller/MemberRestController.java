@@ -17,6 +17,7 @@ import umc.study.domain.Member;
 import umc.study.domain.Review;
 import umc.study.service.MemberService.MemberCommandService;
 import umc.study.service.MemberService.MemberReviewQueryService;
+import umc.study.validation.annotation.ExistMember;
 import umc.study.validation.annotation.ExistMembers;
 import umc.study.web.dto.MemberRequestDTO;
 import umc.study.web.dto.MemberResponseDTO;
@@ -47,7 +48,7 @@ public class MemberRestController {
     @Parameters({
             @Parameter(name = "memberId", description = "회원의 아이디, path variable 입니다!")
     })
-    public ApiResponse<ReviewResponseDTO.MyReviewPreviewListDTO> getReviewsList(@ExistMembers @PathVariable(name = "memberId") Long memberId, @RequestParam(name = "page") Integer page) {
+    public ApiResponse<ReviewResponseDTO.MyReviewPreviewListDTO> getReviewsList(@ExistMember @PathVariable(name = "memberId") Long memberId, @RequestParam(name = "page") Integer page) {
         Page<Review> reviewList = memberReviewQueryService.getReviewList(memberId, page);
         return ApiResponse.onSuccess(ReviewConverter.reviewPreViewListDTO(reviewList));
     }
