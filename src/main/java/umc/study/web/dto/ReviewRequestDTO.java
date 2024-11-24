@@ -24,28 +24,4 @@ public class ReviewRequestDTO {
         @NotBlank
         String reviewContent;
     }
-
-    @Builder
-    @Getter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class MyReviewPreviewListDTO {
-        List<MyReviewPreviewDTO> reviewList;
-        Integer listSize;
-        Integer totalPage;
-        Long totalElements;
-        Boolean isFirst;
-        Boolean isLast;
-    }
-
-    @Builder
-    @Getter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class MyReviewPreviewDTO {
-        String ownerNickname;
-        Float score;
-        String body;
-        LocalDate createdAt;
-    }
 }
