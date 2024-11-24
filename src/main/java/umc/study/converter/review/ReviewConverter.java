@@ -7,6 +7,7 @@ import umc.study.web.dto.ReviewRequestDTO;
 import umc.study.web.dto.ReviewResponseDTO;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class ReviewConverter {
 
@@ -25,5 +26,13 @@ public class ReviewConverter {
                 .store(writtenStore)
                 .body(request.getReviewContent())
                 .build();
+    }
+
+    public static ReviewResponseDTO.MyReviewPreviewDTO reviewPreViewDTO(Review review){
+        return null;
+    }
+
+    public static ReviewResponseDTO.MyReviewPreviewListDTO reviewPreViewListDTO(List<Review> reviewList){
+        return null;
     }
 }
