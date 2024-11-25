@@ -14,7 +14,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CheckPage {
 
-    String message() default "페이지가 0보다 작을 수 없습니다.";
+    String message() default "페이지가 1보다 작을 수 없습니다.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
