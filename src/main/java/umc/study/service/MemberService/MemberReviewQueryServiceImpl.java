@@ -22,7 +22,7 @@ public class MemberReviewQueryServiceImpl implements MemberReviewQueryService {
 
         Member member = memberRepository.findById(MemberId).get();
 
-        Page<Review> memberPage = reviewRepository.findAllByMember(member, PageRequest.of(page, 10));
+        Page<Review> memberPage = reviewRepository.findAllByMember(member, PageRequest.of(page-1, 10));
         return memberPage;
     }
 }

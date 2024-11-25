@@ -31,7 +31,7 @@ public class MemberRequestDTO {
         String address;
         @Size(min = 5, max = 12)
         String specAddress;
-        @ExistRegions
+        @ExistCategories
         List<Long> preferCategory;
     }
 }
