@@ -1,5 +1,7 @@
 package umc.spring.service.StoreService;
 
+import org.springframework.data.domain.Page;
+import umc.spring.domain.Mission;
 import umc.spring.domain.Store;
 
 import java.util.List;
@@ -10,4 +12,6 @@ public interface StoreQueryService {
     // 제공할 기능을 여기서 선언
     Optional<Store> findStore(Long id);
     List<Store> findStoresByNameAndScore(String name, float score);
+
+    Page<Mission> getMissionList(Long storeId, Integer page);
 }

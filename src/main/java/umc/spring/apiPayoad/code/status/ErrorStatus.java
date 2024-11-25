@@ -24,10 +24,7 @@ public enum ErrorStatus implements BaseErrorCode {
     FOOD_CATEGORY_NOT_FOUND(HttpStatus.NOT_FOUND, "FOODCATEGORY4001", "해당 카테고리가 없습니다."),
     
     // 가게 관련 에러
-    STORE_NOT_FOUND(HttpStatus.BAD_REQUEST, "STORE4001", "가게가 없습니다."),
-
-    // 가게 관련 에러
-    STORE_CATEGORY_NOT_FOUND(HttpStatus.NOT_FOUND, "STORE4001", "해당 가게가 없습니다."),
+    STORE_NOT_FOUND(HttpStatus.BAD_REQUEST, "STORE4001", "해당 가게가 없습니다."),
   
     // 미션 관련 에러
     MISSION_NOT_FOUND(HttpStatus.NOT_FOUND, "MISSION4001", "해당 미션이 없습니다."),
@@ -35,7 +32,8 @@ public enum ErrorStatus implements BaseErrorCode {
 
     // 예시...
     ARTICLE_NOT_FOUND(HttpStatus.NOT_FOUND, "ARTICLE4001", "게시글이 없습니다."),
-    TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이것은 테스트");
+    TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이것은 테스트"),
+    PAGE_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4002", "페이지 값이 음수입니다.");
 
     private final HttpStatus httpStatus;
     private final String code;
