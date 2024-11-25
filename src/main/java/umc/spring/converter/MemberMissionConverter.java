@@ -35,4 +35,13 @@ public class MemberMissionConverter {
                 .member(member)
                 .build();
     }
+
+    public static MemberMission updateStatus(MemberMission memberMission) {
+        return MemberMission.builder()
+                .id(memberMission.getId())
+                .status(MissionStatus.COMPLETE)
+                .member(memberMission.getMember())
+                .mission(memberMission.getMission())
+                .build();
+    }
 }

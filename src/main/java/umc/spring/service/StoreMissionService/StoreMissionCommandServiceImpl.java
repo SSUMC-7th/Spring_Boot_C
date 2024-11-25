@@ -23,7 +23,7 @@ public class StoreMissionCommandServiceImpl implements StoreMissionCommandServic
     @Transactional
     public Mission joinMission(StoreMissionRequestDTO.StoreMissionJoinDTO request) {
         Store store = storeRepository.findById(request.getStoreId())
-                .orElseThrow(() -> new StoreHandler(ErrorStatus.STORE_CATEGORY_NOT_FOUND));
+                .orElseThrow(() -> new StoreHandler(ErrorStatus.STORE_NOT_FOUND));
 
         Mission newMission = StoreMissionConverter.toMission(request, store);
 
