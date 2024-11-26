@@ -44,7 +44,8 @@ public class MemberRestController {
         @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH006", description = "acess 토큰 모양이 이상함",content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
     @Parameters({
-            @Parameter(name = "memberId", description = "사용자의 아이디, path variable입니당.")
+            @Parameter(name = "memberId", description = "사용자의 아이디, path variable입니당."),
+            @Parameter(name = "page", description = "페이지는 1 이상입니당.")
     })
     public ApiResponse<MemberResponseDTO.MemberReviewPreviewListDTO> getMemberReviewList(@ExistMembers @PathVariable(name = "memberId") Long memberId, @ExistPage @RequestParam(name="page") Integer page){
         Page<Review> reviewList = memberCommandService.getMemberReviewList(memberId,page);
