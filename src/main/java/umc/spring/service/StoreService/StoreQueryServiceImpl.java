@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import umc.spring.ApiPayload.code.status.ErrorStatus;
 import umc.spring.domain.Review;
 import umc.spring.domain.Store;
 import umc.spring.repository.ReviewRepository;
@@ -36,6 +37,9 @@ public class StoreQueryServiceImpl implements StoreQueryService{
 
     @Override
     public Page<Review> getReviewList(Long StoreId, Integer page) {
+        if (page == null || page < 0) {
+            throw new IllegalArgumentException(ErrorStatus.PAGE_NOT_EXIST.getMessage());
+        }
 
         Store store = storeRepository.findById(StoreId).orElseThrow(() -> new IllegalArgumentException("해당 가게를 찾을 수 없습니다. storeId: " + StoreId));
 
