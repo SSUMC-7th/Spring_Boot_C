@@ -5,7 +5,6 @@ import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import umc.spring.ApiPayload.code.status.ErrorStatus;
-import umc.spring.repository.FoodCategoryRepository;
 import umc.spring.service.StoreService.RegionRepositoryService;
 import umc.spring.validation.annotation.ExistRegions;
 
@@ -13,7 +12,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class RegionExistValidator implements ConstraintValidator<ExistRegions, List<Long>> {
+public class RegionsExistValidator implements ConstraintValidator<ExistRegions, List<Long>> {
 
     private final RegionRepositoryService regionRepositoryService;
 
