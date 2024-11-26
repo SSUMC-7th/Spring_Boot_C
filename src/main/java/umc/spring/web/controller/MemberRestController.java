@@ -8,11 +8,16 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import umc.spring.ApiPayload.ApiResponse;
 import umc.spring.converter.MemberConverter;
+import umc.spring.converter.StoreConverter;
 import umc.spring.domain.Member;
+import umc.spring.domain.Review;
 import umc.spring.service.MemberService.MemberCommandService;
+import umc.spring.validation.annotation.ExistMembers;
+import umc.spring.validation.annotation.ExistPage;
 import umc.spring.web.dto.MemberRequestDTO;
 import umc.spring.web.dto.MemberResponseDTO;
 
@@ -41,9 +46,10 @@ public class MemberRestController {
     @Parameters({
             @Parameter(name = "memberId", description = "사용자의 아이디, path variable입니당.")
     })
-    public ApiResponse<MemberResponseDTO.MemberReviewPreviewListDTO> getMemberReviewList(@PathVariable(name = "memberId") Long memberId, @RequestParam(name="page") Integer page){
-        MemberCommandService.getMemberReviewList(memberId, page);
-        return null;
+    public ApiResponse<MemberResponseDTO.MemberReviewPreviewListDTO> getMemberReviewList(@ExistMembers @PathVariable(name = "memberId") Long memberId, @ExistPage @RequestParam(name="page") Integer page){
+        Page<Review> reviewList = memberCommandService.getMemberReviewList(memberId,page);
+
+        return ApiResponse.onSuccess(MemberConverter.memberReviewPreviewListDTO(reviewList));
     }
 
 }

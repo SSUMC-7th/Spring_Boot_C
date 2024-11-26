@@ -27,7 +27,7 @@ public class MemberResponseDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class MemberReviewPreviewListDTO {
-        List<MemberResponseDTO.MemberReviewPreviewListDTO> memberReviewList;
+        List<MemberResponseDTO.MemberReviewPreviewDTO> memberReviewList;
         Integer listSize;
         Integer totalPage;
         Long totalElements;

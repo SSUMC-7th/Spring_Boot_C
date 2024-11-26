@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+@Builder
 @DynamicInsert
 @DynamicUpdate
 @Entity
 @Getter
-@Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Store extends BaseEntity {
