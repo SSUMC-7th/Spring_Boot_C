@@ -5,7 +5,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class MissionResponseDTO {
     @Builder
@@ -18,5 +20,28 @@ public class MissionResponseDTO {
         Integer status;
         LocalDateTime createdAt;
         LocalDateTime updatedAt;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class StoreMissionPreViewListDTO {
+        List<StoreMissionPreViewDTO> reviewList;
+        Integer listSize;
+        Integer totalPage;
+        Long totalElements;
+        Boolean isFirst;
+        Boolean isLast;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class StoreMissionPreViewDTO {
+        String missionSpec;
+        Integer reward;
+        LocalDate deadLine;
     }
 }
