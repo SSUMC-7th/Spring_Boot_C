@@ -6,8 +6,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import umc.spring.ApiPayload.code.status.ErrorStatus;
+import umc.spring.domain.Mission;
 import umc.spring.domain.Review;
 import umc.spring.domain.Store;
+import umc.spring.repository.MissionRepository;
 import umc.spring.repository.ReviewRepository;
 import umc.spring.repository.StoreRepository.StoreRepository;
 
@@ -20,6 +22,7 @@ import java.util.Optional;
 public class StoreQueryServiceImpl implements StoreQueryService{
     private final StoreRepository storeRepository;
     private final ReviewRepository reviewRepository;
+    private final MissionRepository missionRepository;
 
     @Override
     public Optional<Store> findStore(Long id) {
@@ -43,7 +46,19 @@ public class StoreQueryServiceImpl implements StoreQueryService{
 
         Store store = storeRepository.findById(StoreId).orElseThrow(() -> new IllegalArgumentException("해당 가게를 찾을 수 없습니다. storeId: " + StoreId));
 
-        Page<Review> StorePage = reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
-        return StorePage;
+        Page<Review> StoreReviewPage = reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
+        return StoreReviewPage;
+    }
+
+    @Override
+    public Page<Mission> getStoreMissionList(Long StoreId, Integer page) {
+        if (page == null || page < 0) {
+            throw new IllegalArgumentException(ErrorStatus.PAGE_NOT_EXIST.getMessage());
+        }
+
+        Store store = storeRepository.findById(StoreId).orElseThrow(() -> new IllegalArgumentException("해당 가게를 찾을 수 없습니다. storeId: " + StoreId));
+
+        Page<Mission> StoreMissionPage = missionRepository.findAllByStore(store, PageRequest.of(page, 10));
+        return StoreMissionPage;
     }
 }
