@@ -5,13 +5,14 @@ import jakarta.validation.Payload;
 
 import umc.study.validation.validator.CategoriesExistValidator;
 import umc.study.validation.validator.MemberExistValidator;
+import umc.study.validation.validator.MembersExistValidator;
 
 
 import java.lang.annotation.*;
 
 @Documented
 
-@Constraint(validatedBy = MemberExistValidator.class)
+@Constraint(validatedBy = MembersExistValidator.class)
 @Target( { ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ExistMembers {
