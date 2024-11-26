@@ -28,6 +28,7 @@ public class MissionResponseDTO {
     @AllArgsConstructor
     public static class StoreMissionPreViewListDTO {
         List<StoreMissionPreViewDTO> reviewList;
+        String storeName;
         Integer listSize;
         Integer totalPage;
         Long totalElements;

@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 public class MissionConverter {
 
     // MissionResponseDTO 변환
@@ -64,12 +65,13 @@ public class MissionConverter {
                 .build();
     }
 
-    public static MissionResponseDTO.StoreMissionPreViewListDTO storeMissionPreViewListDTO(Page<Mission> storeMissionList){
+    public static MissionResponseDTO.StoreMissionPreViewListDTO storeMissionPreViewListDTO(Page<Mission> storeMissionList, String storeName){
 
         List<MissionResponseDTO.StoreMissionPreViewDTO> storeMissionPreViewDTOList = storeMissionList.stream()
                 .map(MissionConverter::storeMissionPreViewDTO).collect(Collectors.toList());
 
         return MissionResponseDTO.StoreMissionPreViewListDTO.builder()
+                .storeName(storeName)
                 .isLast(storeMissionList.isLast())
                 .isFirst(storeMissionList.isFirst())
                 .totalPage(storeMissionList.getTotalPages())

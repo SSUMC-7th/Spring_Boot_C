@@ -17,12 +17,15 @@ import umc.spring.converter.StoreConverter;
 import umc.spring.domain.Member;
 import umc.spring.domain.Mission;
 import umc.spring.domain.Review;
+import umc.spring.domain.Store;
 import umc.spring.domain.mapping.MemberMission;
 import umc.spring.service.MissionService.MissionCommandService;
 import umc.spring.service.StoreService.StoreQueryService;
 import umc.spring.validation.annotation.ExistStores;
 import umc.spring.web.dto.MissionRequestDTO;
 import umc.spring.web.dto.MissionResponseDTO;
+
+import static umc.spring.domain.QStore.store;
 
 @RestController
 @RequiredArgsConstructor
@@ -55,7 +58,9 @@ public class MissionRestController {
             @Parameter(name = "page", description = "page는 1이상입니다!")
     })
     public ApiResponse<MissionResponseDTO.StoreMissionPreViewListDTO> getStoreMissionList(@ExistStores @PathVariable(name = "storeId") Long storeId, @RequestParam(name = "page") Integer page){
+        Store store = storeQueryService.findStore(storeId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 가게를 찾을 수 없습니다. storeId: " + storeId));
         Page<Mission> storeMissionList = storeQueryService.getStoreMissionList(storeId,page);
-        return ApiResponse.onSuccess(MissionConverter.storeMissionPreViewListDTO(storeMissionList));
+        return ApiResponse.onSuccess(MissionConverter.storeMissionPreViewListDTO(storeMissionList, store.getName()));
     }
 }
