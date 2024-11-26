@@ -8,6 +8,7 @@ import umc.spring.web.dto.MissionRequestDTO;
 import umc.spring.web.dto.MissionResponseDTO;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class MissionConverter {
 
@@ -50,5 +51,13 @@ public class MissionConverter {
                 .mission(mission)
                 .status(toEnumStatus(status)) // Integer를 Enum으로 변환하여 설정
                 .build();
+    }
+
+    public static MissionResponseDTO.StoreMissionPreViewDTO storeMissionPreViewDTO(Mission storeMission){
+        return null;
+    }
+
+    public static MissionResponseDTO.StoreMissionPreViewListDTO storeMissionPreViewListDTO(List<Mission> storeMissionList){
+        return null;
     }
 }
