@@ -1,12 +1,14 @@
 package umc.spring.converter;
 
 import umc.spring.domain.Member;
+import umc.spring.domain.Review;
 import umc.spring.domain.enums.Gender;
 import umc.spring.web.dto.MemberRequestDTO;
 import umc.spring.web.dto.MemberResponseDTO;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MemberConverter {
 
@@ -40,5 +42,13 @@ public class MemberConverter {
                 .name(request.getName())
                 .memberPreferList(new ArrayList<>())
                 .build();
+    }
+
+    public static MemberResponseDTO.MemberReviewPreviewDTO memberReviewPreViewDTO(Review memberReview){
+        return null;
+    }
+
+    public static MemberResponseDTO.MemberReviewPreviewListDTO memberReviewPreviewListDTO(List<Review> memberReviewList){
+        return null;
     }
 }
