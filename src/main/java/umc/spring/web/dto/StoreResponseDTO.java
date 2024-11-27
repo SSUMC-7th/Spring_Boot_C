@@ -14,10 +14,18 @@ public class StoreResponseDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
+
     public static class StoreMissionDTO {
         String storeName;
         String missionSpec;
         Integer reward;
+        LocalDateTime createdAt;
+    }
+
+    public static class ReviewPrivewDTO {
+        String nickname;
+        Float score;
+        String content;
         LocalDateTime createdAt;
     }
 
@@ -30,6 +38,15 @@ public class StoreResponseDTO {
         Long totalElements;
         Integer listSize;
         Integer totalPage;
+        Boolean isFirst;
+        Boolean isLast;
+    }
+
+    public static class ReviewPreviewListDTO {
+        List<ReviewPrivewDTO> reviewList;
+        Integer listSize;
+        Integer totalPage;
+        Long totalElements;
         Boolean isFirst;
         Boolean isLast;
     }

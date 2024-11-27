@@ -15,4 +15,5 @@ public @interface ExistStore {
     String message() default "해당하는 가게가 존재하지 않습니다.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
+
 }
