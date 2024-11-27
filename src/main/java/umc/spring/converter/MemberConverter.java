@@ -1,7 +1,9 @@
 package umc.spring.converter;
 
+import org.springframework.data.domain.Page;
 import umc.spring.domain.FoodCategory;
 import umc.spring.domain.Member;
+import umc.spring.domain.Review;
 import umc.spring.domain.enums.Gender;
 import umc.spring.domain.mapping.MemberPrefer;
 import umc.spring.web.dto.MemberRequestDTO;
@@ -44,6 +46,29 @@ public class MemberConverter {
                 .name(request.getName())
                 .age(request.getAge())
                 .memberPreferList(new ArrayList<>())
+                .build();
+    }
+
+    public static MemberResponseDTO.ReviewPreviewDTO toreviewPreviewDTO(Review review){
+        return MemberResponseDTO.ReviewPreviewDTO.builder()
+                .ownNickname(review.getMember().getName())
+                .score(review.getScore())
+                .body(review.getBody())
+                .createdAt(review.getCreatedAt().toLocalDate())
+                .build();
+    }
+
+    public static MemberResponseDTO.ReviewPreviewListDTO toreviewPreviewListDTO(Page<Review> reviewList){
+        List<MemberResponseDTO.ReviewPreviewDTO> reviewPreviewDTOList= reviewList.stream()
+                .map(MemberConverter::toreviewPreviewDTO).collect(Collectors.toList());
+
+        return MemberResponseDTO.ReviewPreviewListDTO.builder()
+                .isFirst(reviewList.isFirst())
+                .isLast(reviewList.isLast())
+                .totalPage(reviewList.getTotalPages())
+                .totalElements(reviewList.getTotalElements())
+                .listSize(reviewPreviewDTOList.size())
+                .reviewPreviewList(reviewPreviewDTOList)
                 .build();
     }
 
