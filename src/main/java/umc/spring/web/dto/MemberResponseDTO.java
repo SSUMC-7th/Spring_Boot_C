@@ -17,4 +17,14 @@ public class MemberResponseDTO {
         Long memberId;
         LocalDateTime createdAt;
     }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MemberMissionDTO {
+        Long memberMissionId;
+        String newStatus;
+        LocalDateTime updatedAt;
+    }
 }

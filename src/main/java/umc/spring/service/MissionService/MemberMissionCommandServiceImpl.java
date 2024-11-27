@@ -1,11 +1,15 @@
 package umc.spring.service.MissionService;
 
+import com.querydsl.core.types.EntityPath;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.stereotype.Service;
 import umc.spring.apiPayoad.code.status.ErrorStatus;
 import umc.spring.apiPayoad.exception.handler.MemberHandler;
 import umc.spring.apiPayoad.exception.handler.MissionHandler;
+import umc.spring.apiPayoad.exception.handler.TempHandler;
 import umc.spring.converter.MemberMissionConverter;
 import umc.spring.domain.Member;
 import umc.spring.domain.Mission;
@@ -15,7 +19,7 @@ import umc.spring.repository.MemberRepository;
 import umc.spring.repository.MissionRepository;
 import umc.spring.web.dto.MissionRequestDTO;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +28,8 @@ public class MemberMissionCommandServiceImpl implements MemberMissionCommandServ
     private final MemberRepository memberRepository;
     private final MissionRepository missionRepository;
     private final MemberMissionRepository memberMissionRepository;
+    private final LocalContainerEntityManagerFactoryBean entityManagerFactory;
+    private final JPAQueryFactory jpaQueryFactory;
 
     @Override
     @Transactional
@@ -36,5 +42,16 @@ public class MemberMissionCommandServiceImpl implements MemberMissionCommandServ
         MemberMission newMemberMission = MemberMissionConverter.toMission(request, member, mission);
 
         return memberMissionRepository.save(newMemberMission);
+    }
+
+    @Override
+    @Transactional
+    public MemberMission updateMemberMission(Long memberMissionId) {
+        MemberMission memberMission = memberMissionRepository.findById(memberMissionId)
+                .orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_MISSION_NOT_FOUND));
+
+        MemberMission newMemberMission = MemberMissionConverter.updateStatus(memberMission);
+        return memberMissionRepository.save(newMemberMission);
+
     }
 }

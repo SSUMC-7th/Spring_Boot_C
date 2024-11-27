@@ -2,6 +2,7 @@ package umc.spring.converter;
 
 import umc.spring.domain.Member;
 import umc.spring.domain.enums.Gender;
+import umc.spring.domain.mapping.MemberMission;
 import umc.spring.web.dto.MemberRequestDTO;
 import umc.spring.web.dto.MemberResponseDTO;
 
@@ -39,6 +40,14 @@ public class MemberConverter {
                 .name(request.getName())
                 .age(request.getBirthYear())
                 .memberPreferList(new ArrayList<>())
+                .build();
+    }
+
+    public static MemberResponseDTO.MemberMissionDTO toMemberMissionDTO(MemberMission memberMission) {
+        return MemberResponseDTO.MemberMissionDTO.builder()
+                .memberMissionId(memberMission.getId())
+                .newStatus("COMPLETE")
+                .updatedAt(LocalDateTime.now())
                 .build();
     }
 }
