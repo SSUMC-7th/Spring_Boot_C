@@ -1,6 +1,8 @@
 package umc.spring.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.spring.apiPayload.code.status.ErrorStatus;
@@ -9,9 +11,11 @@ import umc.spring.converter.MemberConverter;
 import umc.spring.converter.MemberPreferConverter;
 import umc.spring.domain.FoodCategory;
 import umc.spring.domain.Member;
+import umc.spring.domain.Review;
 import umc.spring.domain.mapping.MemberPrefer;
 import umc.spring.repository.FoodCategoryRepository;
 import umc.spring.repository.MemberRepository;
+import umc.spring.repository.ReviewRepository;
 import umc.spring.web.dto.MemberRequestDTO;
 
 import java.util.List;
@@ -24,6 +28,8 @@ public class MemberCommandServiceImpl implements MemberCommandService {
     private final MemberRepository memberRepository;
 
     private final FoodCategoryRepository foodCategoryRepository;
+
+    private final ReviewRepository reviewRepository;
 
     @Override
     @Transactional //데이터 무결성을 위함 -> 중간에 오류 발생하면 자동 롤백함
@@ -40,4 +46,19 @@ public class MemberCommandServiceImpl implements MemberCommandService {
 
         return memberRepository.save(newMember);
     }
+
+    @Override
+    public Page<Review> getMyReviewList(Long memberId, Integer page) {
+        Member member = memberRepository.findById(memberId).get();
+
+        Page<Review> reviewPage = reviewRepository.findAllByMember(member, PageRequest.of(page, 10));
+
+        return reviewPage;
+    }
+
+    @Override
+    public Integer pageCheck(Integer page) {
+        return page-1;
+    }
+
 }
