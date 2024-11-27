@@ -33,10 +33,6 @@ public class StoreCommandServiceImpl implements StoreCommandService {
 
         Page<Review> StorePage = reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
 
-        for (Review review : StorePage.getContent()) {
-            System.out.println(review);
-        }
-
         return StorePage;
     }
 }
