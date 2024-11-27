@@ -52,4 +52,27 @@ public class ReviewConverter {
                 .reviewList(reviewPreViewDTOList)
                 .build();
     }
+
+    public static ReviewResponseDTO.MyStoreReviewPreviewDTO storeReviewPreViewDTO(Review review){
+        return ReviewResponseDTO.MyStoreReviewPreviewDTO.builder()
+                .reviewerNickName(review.getMember().getName())
+                .score(review.getScore())
+                .createdAt(review.getCreatedAt().toLocalDate())
+                .body(review.getBody())
+                .build();
+    }
+
+    public static ReviewResponseDTO.MyStoreReviewPreviewListDTO storeReviewPreViewListDTO(Page<Review> reviewList){
+        List<ReviewResponseDTO.MyStoreReviewPreviewDTO> reviewPreViewDTOList = reviewList.stream()
+                .map(ReviewConverter::storeReviewPreViewDTO).collect(Collectors.toList());
+
+        return ReviewResponseDTO.MyStoreReviewPreviewListDTO.builder()
+                .isLast(reviewList.isLast())
+                .isFirst(reviewList.isFirst())
+                .totalPage(reviewList.getTotalPages())
+                .totalElements(reviewList.getTotalElements())
+                .listSize(reviewPreViewDTOList.size())
+                .reviewList(reviewPreViewDTOList)
+                .build();
+    }
 }

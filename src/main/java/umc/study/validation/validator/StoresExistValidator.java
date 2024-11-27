@@ -6,25 +6,25 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import umc.study.apiPayLoad.code.status.ErrorStatus;
 import umc.study.service.MemberService.StoreRepositoryService;
-import umc.study.validation.annotation.ExistStore;
 import umc.study.validation.annotation.ExistStores;
 
 import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class StoreExistValidator implements ConstraintValidator<ExistStore, Long> {
+public class StoresExistValidator implements ConstraintValidator<ExistStores, List<Long>> {
 
     private final StoreRepositoryService storeRepositoryService;
 
     @Override
-    public void initialize(ExistStore constraintAnnotation) {
+    public void initialize(ExistStores constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 
     @Override
-    public boolean isValid(Long value, ConstraintValidatorContext context) {
-        boolean isValid = storeRepositoryService.isInStoreRepository(value);
+    public boolean isValid(List<Long> values, ConstraintValidatorContext context) {
+        boolean isValid = values.stream()
+                .allMatch(value -> storeRepositoryService.isInStoreRepository(value));
 
         if (!isValid) {
             context.disableDefaultConstraintViolation();
@@ -35,3 +35,4 @@ public class StoreExistValidator implements ConstraintValidator<ExistStore, Long
 
     }
 }
+
