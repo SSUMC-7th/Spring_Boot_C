@@ -14,7 +14,6 @@ public class StoreResponseDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-
     public static class StoreMissionDTO {
         String storeName;
         String missionSpec;
@@ -22,6 +21,10 @@ public class StoreResponseDTO {
         LocalDateTime createdAt;
     }
 
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class ReviewPrivewDTO {
         String nickname;
         Float score;
@@ -42,6 +45,10 @@ public class StoreResponseDTO {
         Boolean isLast;
     }
 
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class ReviewPreviewListDTO {
         List<ReviewPrivewDTO> reviewList;
         Integer listSize;

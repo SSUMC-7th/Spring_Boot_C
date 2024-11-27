@@ -21,7 +21,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class StoreQueryServiceImpl implements StoreQueryService {
-    private final StoreRepository storeRepository;n
+    private final StoreRepository storeRepository;
     private final MissionRepository missionRepository;
     private final ReviewRepository reviewRepository;
 
@@ -45,14 +45,15 @@ public class StoreQueryServiceImpl implements StoreQueryService {
     public Page<Mission> getMissionList(Long storeId, Integer page) {
         Store store = storeRepository.findById(storeId).get();
 
-        Page<Mission> storePage = missionRepository.findAllByStore(store, PageRequest.of(page, 10));
+        Page<Mission> storePage = missionRepository.findAllByStore(store, PageRequest.of(page - 1, 10));
         return storePage;
+    }
 
     @Override
     public Page<Review> getReviewList(Long storeId, Integer page) {
         Store store = storeRepository.findById(storeId).get();
 
-        Page<Review> storePage = reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
+        Page<Review> storePage = reviewRepository.findAllByStore(store, PageRequest.of(page-1, 10));
         return storePage;
     }
 }

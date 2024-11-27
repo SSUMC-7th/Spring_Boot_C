@@ -33,6 +33,8 @@ public class StoreConverter {
                 .isFirst(missionList.isFirst())
                 .isLast(missionList.isLast())
                 .storeMissionList(storeMissionDTOList)
+                .build();
+    }
 
     public static StoreResponseDTO.ReviewPrivewDTO reviewPrivewDTO(Review review) {
         return StoreResponseDTO.ReviewPrivewDTO.builder()

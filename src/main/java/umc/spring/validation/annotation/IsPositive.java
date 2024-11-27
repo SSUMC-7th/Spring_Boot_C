@@ -12,7 +12,7 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
 public @interface IsPositive {
 
-    String message() default "페이지 값이 음수입니다.";
+    String message() default "페이지 값이 양수가 아닙니다.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

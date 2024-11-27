@@ -18,5 +18,5 @@ public interface StoreQueryService {
 
 
     Page<Mission> getMissionList(Long storeId, Integer page);
-    Page<Review> getReviewList(Long storeid, Integer page);
+    Page<Review> getReviewList(Long storeId, Integer page);
 }
