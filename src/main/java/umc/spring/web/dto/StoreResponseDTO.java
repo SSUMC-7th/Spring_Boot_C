@@ -43,15 +43,29 @@ public class StoreResponseDTO {
         Float score;
         String body;
         LocalDate createdAt;
+    }
 
-        @Override
-        public String toString() {
-            return "ReviewPreViewDTO{" +
-                    "ownerNickname='" + ownerNickname + '\'' +
-                    ", score=" + score +
-                    ", body='" + body + '\'' +
-                    ", createdAt=" + createdAt +
-                    '}';
-        }
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MissionPreviewListDTO {
+        List<MissionPreviewDTO> missionList;
+        Integer listSize;
+        Integer totalPage;
+        Long totalElements;
+        Boolean isFirst;
+        Boolean isLast;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MissionPreviewDTO{
+        String storeName;
+        int reward;
+        String missionSpec;
+        int deadline;
     }
 }
