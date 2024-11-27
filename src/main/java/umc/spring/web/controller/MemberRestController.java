@@ -42,7 +42,7 @@ public class MemberRestController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH006", description = "acess 토큰 모양이 이상함",content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
     @Parameters({
-            @Parameter(name = "memberMissionId", description = "사용자 아이디, path variable 입니다!"),
+            @Parameter(name = "memberMissionId", description = "사용자미션 아이디, path variable 입니다!"),
     })
     public ApiResponse<MemberResponseDTO.MemberMissionDTO> postMissionStatus(@ExistMemberMission @PathVariable(name = "memberMissionId") Long memberMissionId) {
         MemberMission memberMission = memberMissionCommandService.updateMemberMission(memberMissionId);
