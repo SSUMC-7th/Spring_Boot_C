@@ -2,6 +2,7 @@ package umc.spring.service.MemberService;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import umc.spring.apiPayoad.code.status.ErrorStatus;
 import umc.spring.apiPayoad.exception.handler.FoodCategoryHandler;
@@ -23,7 +24,7 @@ public class MemberCommandServiceImpl implements MemberCommandService {
 
     private final MemberRepository memberRepository;
     private final FoodCategoryRepository foodCategoryRepository;
-
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional
@@ -31,6 +32,7 @@ public class MemberCommandServiceImpl implements MemberCommandService {
 
         // converter의 toMember 함수를 통해 새로운 Member 객체 생성
         Member newMember = MemberConverter.toMember(request);
+        newMember.encodePassword(passwordEncoder.encode(request.getPassword()));    // 비번 암호화
 
         // request에 들어있는 food category 배열에서 하나씩 꺼내며 foodCategoryRepository에 있는지 검사.
         // 없으면 orElseThrow 함수를 타고 에러 핸들러로 가고,

@@ -40,6 +40,9 @@ public class MemberConverter {
                 .name(request.getName())
                 .age(request.getBirthYear())
                 .memberPreferList(new ArrayList<>())
+                .email(request.getEmail())  // 추가된 코드
+                .password(request.getPassword())  // 추가된 코드
+                .role(request.getRole())  // 추가된 코드
                 .build();
     }
 
