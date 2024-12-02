@@ -17,10 +17,12 @@ public class MemberViewController {
     private final MemberCommandService memberCommandService;
 
     @PostMapping("/members/signup")
-    public String joinMember(@ModelAttribute("memberJoinDTO") MemberRequestDTO.JoinMemberDTO request,
-                             BindingResult bindingResult, Model model) {
+    public String joinMember(@ModelAttribute("memberJoinDto") MemberRequestDTO.JoinMemberDTO request,
+                             BindingResult bindingResult,
+                             Model model) {
+
         if(bindingResult.hasErrors()) {
-            return "singup";
+            return "signup";
         }
 
         try {
@@ -31,15 +33,16 @@ public class MemberViewController {
             return "signup";
         }
     }
-    @GetMapping("/login")
-    public String loginPage() {
-        return "login";
-    }
 
     @GetMapping("/signup")
     public String signupPage(Model model) {
-        model.addAttribute("memberJoinDTO", new MemberRequestDTO.JoinMemberDTO());
+        model.addAttribute("memberJoinDto", new MemberRequestDTO.JoinMemberDTO());
         return "signup";
+    }
+
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login";
     }
 
     @GetMapping("/home")
