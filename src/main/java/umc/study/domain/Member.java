@@ -63,14 +63,14 @@ public class Member extends BaseEntity {
     private Integer point;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private  List<MemberAgree> memberAgreeList = new ArrayList<>();
+    private List<MemberAgree> memberAgreeList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private  List<MemberPrefer> memberPreferList = new ArrayList<>();
+    private List<MemberPrefer> memberPreferList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private  List<Review> reviewList = new ArrayList<>();
+    private List<Review> reviewList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private  List<MemberMission> memberMissionList = new ArrayList<>();
+    private List<MemberMission> memberMissionList = new ArrayList<>();
 }
