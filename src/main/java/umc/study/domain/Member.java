@@ -8,6 +8,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.MemberStatus;
+import umc.study.domain.enums.Role;
 import umc.study.domain.enums.SocialType;
 
 import java.time.LocalDate;
@@ -56,11 +57,21 @@ public class Member extends BaseEntity {
 
     private LocalDate inactiveDate;
 
-    @Column(length = 50)
-    private String email;
-
     @ColumnDefault("0")
     private Integer point;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    public void encodePassword(String password) {
+        this.password = password;
+    }
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MemberAgree> memberAgreeList = new ArrayList<>();
