@@ -21,6 +21,12 @@ public class MemberViewController {
         return "login";
     }
 
+    @GetMapping("/signup")
+    public String signupPage(Model model) {
+        model.addAttribute("memberJoinDto", new MemberRequestDTO.JoinDto());
+        return "signup";
+    }
+
     // thymeleaf 사용을 위해 일부가 변경되었습니다.
     // 실제로는 8주차에서 작성한 컨트롤러와 동일하게 작성하시면 됩니다!!
     @PostMapping("/members/signup")
