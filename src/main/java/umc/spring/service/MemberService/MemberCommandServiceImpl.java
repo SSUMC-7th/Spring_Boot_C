@@ -2,6 +2,8 @@
 
     import jakarta.transaction.Transactional;
     import lombok.RequiredArgsConstructor;
+    import org.springframework.data.domain.Page;
+    import org.springframework.data.domain.PageRequest;
     import org.springframework.stereotype.Service;
     import umc.spring.ApiPayload.code.status.ErrorStatus;
     import umc.spring.ApiPayload.exception.handler.FoodCategoryHandler;
@@ -9,9 +11,11 @@
     import umc.spring.converter.MemberPreferConverter;
     import umc.spring.domain.FoodCategory;
     import umc.spring.domain.Member;
+    import umc.spring.domain.Review;
     import umc.spring.domain.mapping.MemberPrefer;
     import umc.spring.repository.FoodCategoryRepository;
     import umc.spring.repository.MemberRepository;
+    import umc.spring.repository.ReviewRepository;
     import umc.spring.web.dto.MemberRequestDTO;
 
     import java.util.List;
@@ -22,6 +26,8 @@
     public class MemberCommandServiceImpl implements MemberCommandService{
 
         private final MemberRepository memberRepository;
+
+        private final ReviewRepository reviewRepository;
 
         private final FoodCategoryRepository foodCategoryRepository;
 
@@ -40,6 +46,13 @@
             memberPreferList.forEach(memberPrefer -> {memberPrefer.setMember(newMember);});
 
             return memberRepository.save(newMember);
+        }
+        @Override
+        public Page<Review> getMemberReviewList(Long memberId, Integer page) {
+            Member member = memberRepository.findById(memberId).get();
+
+            Page<Review> MemberPage = reviewRepository.findAllByMember(member, PageRequest.of(page-1, 10));
+            return MemberPage;
         }
     }
 

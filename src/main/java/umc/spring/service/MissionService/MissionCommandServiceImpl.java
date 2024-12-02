@@ -2,6 +2,7 @@ package umc.spring.service.MissionService;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import umc.spring.converter.MissionConverter;
 import umc.spring.domain.Member;
@@ -36,5 +37,6 @@ public class MissionCommandServiceImpl implements MissionCommandService {
         // 데이터 저장
         return memberMissionRepository.save(memberMission);
     }
+
 }
 
