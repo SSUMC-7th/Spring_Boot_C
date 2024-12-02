@@ -46,7 +46,7 @@ public class StoreQueryServiceImpl implements StoreQueryService{
 
         Store store = storeRepository.findById(StoreId).orElseThrow(() -> new IllegalArgumentException("해당 가게를 찾을 수 없습니다. storeId: " + StoreId));
 
-        Page<Review> StoreReviewPage = reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
+        Page<Review> StoreReviewPage = reviewRepository.findAllByStore(store, PageRequest.of(page-1, 10));
         return StoreReviewPage;
     }
 
