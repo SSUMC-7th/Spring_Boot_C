@@ -1,5 +1,6 @@
 package umc.spring.converter;
 
+import org.springframework.data.domain.Page;
 import umc.spring.domain.Member;
 import umc.spring.domain.Mission;
 import umc.spring.domain.enums.MissionStatus;
@@ -7,7 +8,11 @@ import umc.spring.domain.mapping.MemberMission;
 import umc.spring.web.dto.MissionRequestDTO;
 import umc.spring.web.dto.MissionResponseDTO;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 public class MissionConverter {
 
@@ -50,5 +55,30 @@ public class MissionConverter {
                 .mission(mission)
                 .status(toEnumStatus(status)) // Integer를 Enum으로 변환하여 설정
                 .build();
+    }
+
+    public static MissionResponseDTO.StoreMissionPreViewDTO storeMissionPreViewDTO(Mission storeMission){
+        return MissionResponseDTO.StoreMissionPreViewDTO.builder()
+                .missionSpec(storeMission.getMissionSpec())
+                .deadLine(storeMission.getDeadline())
+                .reward(storeMission.getReward())
+                .build();
+    }
+
+    public static MissionResponseDTO.StoreMissionPreViewListDTO storeMissionPreViewListDTO(Page<Mission> storeMissionList, String storeName){
+
+        List<MissionResponseDTO.StoreMissionPreViewDTO> storeMissionPreViewDTOList = storeMissionList.stream()
+                .map(MissionConverter::storeMissionPreViewDTO).collect(Collectors.toList());
+
+        return MissionResponseDTO.StoreMissionPreViewListDTO.builder()
+                .storeName(storeName)
+                .isLast(storeMissionList.isLast())
+                .isFirst(storeMissionList.isFirst())
+                .totalPage(storeMissionList.getTotalPages())
+                .totalElements(storeMissionList.getTotalElements())
+                .listSize(storeMissionPreViewDTOList.size())
+                .reviewList(storeMissionPreViewDTOList)
+                .build();
+
     }
 }
