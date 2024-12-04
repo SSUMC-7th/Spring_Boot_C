@@ -8,6 +8,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import umc.spring.domain.common.BaseEntity;
 import umc.spring.domain.enums.Gender;
 import umc.spring.domain.enums.MemberStatus;
+import umc.spring.domain.enums.Role;
 import umc.spring.domain.enums.SocialType;
 import umc.spring.domain.mapping.MemberAgree;
 import umc.spring.domain.mapping.MemberMission;
@@ -56,9 +57,9 @@ public class Member extends BaseEntity {
     @Column(columnDefinition = "VARCHAR(10)")
     private SocialType socialType;
 
-    @Column(nullable = true, length=50) //원래 이메일은 소셜 로그인에서 처리한 후 나머지 정보를 기입받는 것이 맞는 순서이나,
+    //@Column(nullable = true, length=50) //원래 이메일은 소셜 로그인에서 처리한 후 나머지 정보를 기입받는 것이 맞는 순서이나,
     //소셜 로그인 없이 개발중이라 이메일은 nullable을 true로 바꾸고 진행함
-    private String email;
+    //private String email;
 
     @ColumnDefault("0")
     private Integer point;
@@ -78,6 +79,15 @@ public class Member extends BaseEntity {
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<MemberMission> memberMissionList = new ArrayList<>();
 
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
     @Override
     public String toString() {
         return "Member{" +
@@ -87,5 +97,9 @@ public class Member extends BaseEntity {
                 ", point=" + point +
                 ", phoneNum='" + phoneNum + '\'' +
                 '}';
+    }
+
+    public void encodePassword(String password) {
+        this.password = password;
     }
 }
