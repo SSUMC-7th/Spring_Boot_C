@@ -6,9 +6,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import umc.spring.domain.Member;
 import umc.spring.domain.Mission;
+import umc.spring.domain.Store;
 import umc.spring.domain.mapping.MemberMission;
 import umc.spring.repository.MemberMissionRepository;
 import umc.spring.repository.MemberRepository;
+import umc.spring.repository.StoreRepository.StoreRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -16,6 +18,7 @@ public class MemberMissionCommandServiceImpl implements MemberMissionCommandServ
 
     private final MemberRepository memberRepository;
     private final MemberMissionRepository memberMissionRepository;
+    private final StoreRepository storeRepository;
 
 
     @Override

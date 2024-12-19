@@ -4,6 +4,7 @@
     import lombok.RequiredArgsConstructor;
     import org.springframework.data.domain.Page;
     import org.springframework.data.domain.PageRequest;
+    import org.springframework.security.crypto.password.PasswordEncoder;
     import org.springframework.stereotype.Service;
     import umc.spring.ApiPayload.code.status.ErrorStatus;
     import umc.spring.ApiPayload.exception.handler.FoodCategoryHandler;
@@ -31,11 +32,16 @@
 
         private final FoodCategoryRepository foodCategoryRepository;
 
+        private final PasswordEncoder passwordEncoder;
+
+
         @Override
         @Transactional
         public Member joinMember(MemberRequestDTO.JoinDto request) {
+            System.out.println("선호 카테고리: " + request.getPreferCategory());
 
             Member newMember = MemberConverter.toMember(request);
+            newMember.encodePassword(passwordEncoder.encode(request.getPassword()));
             List<FoodCategory> foodCategoryList = request.getPreferCategory().stream()
                     .map(category -> {
                         return foodCategoryRepository.findById(category).orElseThrow(() -> new FoodCategoryHandler(ErrorStatus.FOOD_CATEGORY_NOT_FOUND));
