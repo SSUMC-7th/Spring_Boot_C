@@ -52,6 +52,10 @@ dependencies {
 	//implementation 'com.fasterxml.jackson.core:jackson-annotations'
 	//implementation 'com.fasterxml.jackson.core:jackson-core'
 
+	//웹 크롤링
+	implementation 'org.seleniumhq.selenium:selenium-java:4.1.2'
+	implementation 'org.jsoup:jsoup:1.18.3'
+
 }
 
 sourceSets {
