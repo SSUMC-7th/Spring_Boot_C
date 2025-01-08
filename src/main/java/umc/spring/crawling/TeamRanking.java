@@ -36,17 +36,17 @@ public class TeamRanking {
         WebElement dropdownElement = driver.findElement(By.id("cphContents_cphContents_cphContents_ddlYear")); // 드롭다운의 id 속성 사용
         Select dropdown = new Select(dropdownElement);
 
+        //2024년만 출력하기
         String year = "2024";
         dropdown.selectByVisibleText(year);
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        // 2023 선택 시 다른 요소를 기다려야 할 수도 있음
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("cphContents_cphContents_cphContents_ddlYear")));
 
         getDataList(driver);
         System.out.println("Year: " + year);
 
-        /*// 드롭다운의 모든 옵션 값 가져오기
+        /*
+        //2024-2023까지 출력되고 Stale.. Exception 뜸
+
+        // 드롭다운의 모든 옵션 값 가져오기
         List<WebElement> options = dropdown.getOptions();
 
         // 드롭다운의 각 값에 대해 크롤링
@@ -87,23 +87,6 @@ public class TeamRanking {
             System.out.println();
             list.add(rowData.toString());
         }
-
-        /*String tableHtml = tableElement.getAttribute("outerHTML");
-
-        // Jsoup을 사용하여 테이블 파싱
-        Document doc = Jsoup.parse(tableHtml);
-        Element table = doc.select("table").first();
-
-        // 각 행에 대해 반복
-        List<Element> rows = table.select("tr");
-        for (Element row : rows) {
-            // 각 셀을 찾아 출력
-            List<Element> columns = row.select("td, th");  // td, th 태그 선택
-            for (Element column : columns) {
-                System.out.print(column.text() + "\t");
-            }
-            System.out.println();  // 한 행을 출력한 후 줄 바꿈
-        }*/
 
         return list;
     }
