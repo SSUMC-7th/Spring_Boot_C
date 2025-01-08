@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import umc.spring.crawling.TeamRanking;
 import umc.spring.service.StoreService.StoreQueryService;
 
 @SpringBootApplication
@@ -14,6 +15,14 @@ public class Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
+
+		//웹 크롤링
+		TeamRanking teamRanking = new TeamRanking();
+		try {
+			teamRanking.process();
+		}catch (InterruptedException e){
+			e.printStackTrace();
+		}
 	}
 
 	//다음 주차 실습에서 번거로워서 주석 걺
